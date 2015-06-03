@@ -1,0 +1,14 @@
+﻿body {  
+        
+}
+
+  .jumbotron
+        {
+            background-image: url(http://www.wallpaperscover.com/wallpapers/imagenes_futbol_hd-1280x800.jpg);
+            color: white;
+            background-attachment:fixed;
+            min-height: 400px;
+            margin-top: 0px;
+            margin-bottom: 8px;
+
+        }

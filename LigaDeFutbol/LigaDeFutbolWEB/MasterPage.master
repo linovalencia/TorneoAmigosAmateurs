@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Torneo de Amigos Amateurs</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Bootstrap theme -->
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="css/sticky-footer-navbar.css" rel="stylesheet" />
+    <link href="css/logo-nav.css" rel="stylesheet" />
+
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">
+                    <img class="img-responsive" width="65" src="images/logo.png" alt="Brand"/>
+                </a>
+                
+
+              </div>
+
+              <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="Default.aspx">Home</a></li>
+                  
+                  <li><a href="ABMArbitro.aspx">Arbitro</a></li>
+                  <li><a href="ABMCancha.aspx">Cancha</a></li>
+                  <li><a href="ABMClub.aspx">Club</a></li>
+              </ul>
+                  
+                  
+                  <div class="loginDisplay navbar-form navbar-right">
+                      <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                          <AnonymousTemplate>
+                              <%-- <button  type="submit" class="btn btn-success">Iniciar Sesion</>--%>
+                                  <a href="Login.aspx" type="submit" class="btn btn-success">Iniciar Sesion</a>
+                              
+                              <%--<a href="InicioSesion.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a>--%>
+                          </AnonymousTemplate>
+                          <LoggedInTemplate>
+                              <font color="white">  Hola  <span class="bold" ><asp:LoginName ID="HeadLoginName" runat="server" /></span>!</font>
+                              <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="-Cerrar sesión-" LogoutPageUrl="~/"/>
+                          </LoggedInTemplate>
+                      </asp:LoginView>
+                  </div>
+              
+              </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+
+
+        <br />
+        
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+       
+        </asp:ContentPlaceHolder>
+    </form>
+
+     <footer class="footer">
+      <div class="container">
+        <p class="text-muted">© Torneo de Amigos Amateurs 2015</p>
+      </div>
+    </footer>    
+  
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
