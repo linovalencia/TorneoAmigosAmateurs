@@ -137,8 +137,7 @@ namespace LigaDeFutbolDAL.DAL
         {
             string consultaSql =
                 @"UPDATE club 
-                 SET idClub=@idClub
-                    , nombreClub=@nom
+                 SET nombreClub=@nom
                     , calle=@calle
                     , numeroCalle=@nroCalle
                     , fechaFundacion=@fechaFun
@@ -152,12 +151,12 @@ namespace LigaDeFutbolDAL.DAL
             {
                 cnn.Open();
                 SqlCommand cmd = new SqlCommand(consultaSql, cnn);
-                cmd.Parameters.AddWithValue("@idClub", club.idClub);
+                //cmd.Parameters.AddWithValue("@idClub", club.idClub);
                 cmd.Parameters.AddWithValue("@nom", club.nombreClub);
                 cmd.Parameters.AddWithValue("@calle", club.calle);
                 cmd.Parameters.AddWithValue("@nroCalle",club.numeroCalle);
                 cmd.Parameters.AddWithValue("@fechaFun", club.fechaFundacion);
-                cmd.Parameters.AddWithValue("@participoAntes", club.participoAntesEnLiga);
+                cmd.Parameters.AddWithValue("@participoAntes", Convert.ToInt32(club.participoAntesEnLiga));
                 cmd.Parameters.AddWithValue("@idCancha", club.idCancha);
 
                 cmd.ExecuteNonQuery();
