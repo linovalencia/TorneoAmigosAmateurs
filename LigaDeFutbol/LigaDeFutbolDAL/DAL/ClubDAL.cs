@@ -83,24 +83,24 @@ namespace LigaDeFutbolDAL.DAL
 
         public static void insertarClub(ClubDTO club) 
         {
-            string consultaSql = @"INSERT INTO club(idClub,nombreClub,calle,numeroCalle,fechaFundacion,participoAntesEnLiga,idCancha)
-                                VALUES(@idClub,@nomClub,@calle,@nroCalle,@fechaFun,@partAntes,@idCancha)";
+            string consultaSql = @"INSERT INTO club(nombreClub,calle,numeroCalle,fechaFundacion,participoAntesEnLiga,idCancha)
+                                VALUES(@nomClub,@calle,@nroCalle,@fechaFun,@partAntes,@idCancha)";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
             try
             {
                 cnn.Open();
                 SqlCommand cmd = new SqlCommand(consultaSql, cnn);
-                cmd.Parameters.AddWithValue("@idClub", club.idClub);
+                //cmd.Parameters.AddWithValue("@idClub", club.idClub);
                 cmd.Parameters.AddWithValue("@nomClub", club.nombreClub);
                 cmd.Parameters.AddWithValue("@calle", club.calle);
                 cmd.Parameters.AddWithValue("@nroCalle", club.numeroCalle);
                 cmd.Parameters.AddWithValue("@fechaFun", club.fechaFundacion);
-                cmd.Parameters.AddWithValue("@partAntes", club.participoAntesEnLiga);
+                cmd.Parameters.AddWithValue("@partAntes", Convert.ToInt32(club.participoAntesEnLiga));
                 cmd.Parameters.AddWithValue("@idCancha", club.idCancha);
 
                 cmd.ExecuteNonQuery();
-                cnn.Close();
+                cnn.Close(); 
             }
             catch (Exception ex) 
             {
@@ -137,8 +137,7 @@ namespace LigaDeFutbolDAL.DAL
         {
             string consultaSql =
                 @"UPDATE club 
-                 SET idClub=@idClub
-                    , nombreClub=@nom
+                 SET nombreClub=@nom
                     , calle=@calle
                     , numeroCalle=@nroCalle
                     , fechaFundacion=@fechaFun
@@ -152,12 +151,12 @@ namespace LigaDeFutbolDAL.DAL
             {
                 cnn.Open();
                 SqlCommand cmd = new SqlCommand(consultaSql, cnn);
-                cmd.Parameters.AddWithValue("@idClub", club.idClub);
+                //cmd.Parameters.AddWithValue("@idClub", club.idClub);
                 cmd.Parameters.AddWithValue("@nom", club.nombreClub);
                 cmd.Parameters.AddWithValue("@calle", club.calle);
                 cmd.Parameters.AddWithValue("@nroCalle",club.numeroCalle);
                 cmd.Parameters.AddWithValue("@fechaFun", club.fechaFundacion);
-                cmd.Parameters.AddWithValue("@participoAntes", club.participoAntesEnLiga);
+                cmd.Parameters.AddWithValue("@participoAntes", Convert.ToInt32(club.participoAntesEnLiga));
                 cmd.Parameters.AddWithValue("@idCancha", club.idCancha);
 
                 cmd.ExecuteNonQuery();

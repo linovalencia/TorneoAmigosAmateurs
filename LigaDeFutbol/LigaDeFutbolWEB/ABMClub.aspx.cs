@@ -14,6 +14,11 @@ public partial class ABMClub : System.Web.UI.Page
         if (Page.IsPostBack == false)
         {
             PanelDatosClub.Visible = false;
+
+            DdlCancha.DataSource = CanchaDAL.obtenerCancha();
+            DdlCancha.DataTextField = "nombreCancha";
+            DdlCancha.DataValueField = "idCancha";
+            DdlCancha.DataBind();
         }
     }
     protected void BtnBuscarClub_Click(object sender, EventArgs e)
@@ -31,12 +36,13 @@ public partial class ABMClub : System.Web.UI.Page
         {
             ClubDTO club = new ClubDTO();
 
-            club.idClub = int.Parse(TxtIdClubDatos.Text);
             club.nombreClub = TxtNombreClub.Text;
             club.calle = TxtCalleDomicilioClub.Text;
             club.numeroCalle = int.Parse(TxtNumDomicilioClub.Text);
             club.fechaFundacion = DateTime.Parse(TxtFechaFund.Text);
-
+            club.idCancha = int.Parse(DdlCancha.SelectedItem.Value);
+            club.participoAntesEnLiga = ChkPrimeraVez.Checked;
+           
             ClubDAL.insertarClub(club);
             Response.Redirect("Login.aspx");
         }
