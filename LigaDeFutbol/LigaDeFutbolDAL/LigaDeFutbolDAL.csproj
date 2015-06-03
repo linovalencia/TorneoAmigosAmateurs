@@ -43,6 +43,7 @@
     <Compile Include="DAL\ArbitroDAL.cs" />
     <Compile Include="DAL\CanchaDAL.cs" />
     <Compile Include="DAL\ClubDAL.cs" />
+    <Compile Include="DAL\TipoDocumentoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\DALBase.cs" />
   </ItemGroup>

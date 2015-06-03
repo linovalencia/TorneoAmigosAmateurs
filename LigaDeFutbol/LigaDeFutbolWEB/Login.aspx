@@ -3,9 +3,9 @@
 
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <link href="css/bootsnipp.css" rel="stylesheet" />
     <div class="container">
         <div class="card card-container">
@@ -13,20 +13,25 @@
             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Dirección de Email" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                <span id="reauth-email" class="reauth-email"></span> 
+                               
+                <input type="email" id="inputEmail" class="form-control" placeholder="Dirección de Email" required="required" autofocus="autofocus" />
+                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="required"/>
                 <div id="remember" class="checkbox">
                     <label>
-                        <input type="checkbox" value="remember-me"> Recordarme
+                        <input type="checkbox" value="remember-me"/>
+                        Recordarme
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar Sesion</button>
-            </form><!-- /form -->
-           <%-- <a href="#" class="forgot-password">
-                Forgot the password?
-            </a>--%>
-        </div><!-- /card-container -->
-    </div><!-- /container -->
+            </form>
+            <!-- /form -->
+            <a href="#" class="forgot-password">
+                ¿Olvidó su Clave?
+            </a>
+        </div>
+        <!-- /card-container -->
+    </div>
+    <!-- /container -->
 </asp:Content>
 
