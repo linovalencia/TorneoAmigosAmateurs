@@ -18,12 +18,12 @@
                 <asp:BoundField DataField="fechaFundacion" HeaderText="fechaFundacion" SortExpression="fechaFundacion" />
             </Columns>
         </asp:GridView> 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LigaDeFutbolConnectionString %>" SelectCommand="SELECT [idClub], [nombreClub], [calle], [numeroCalle], [fechaFundacion] FROM [club]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LigaDeFutbolConnectionString1 %>" SelectCommand="SELECT [idClub], [nombreClub], [calle], [numeroCalle], [fechaFundacion] FROM [club]"></asp:SqlDataSource>
         <asp:Panel ID="PanelDatosClub" runat="server" Height="424px" style="margin-bottom: 45px; margin-top: 40px;">
-            &nbsp; Datos del Club<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Id Club:<asp:TextBox ID="TxtIdClubDatos" runat="server"></asp:TextBox>
+            &nbsp; Datos del Club<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Id Club:<asp:TextBox ID="TxtIdClubDatos" runat="server"></asp:TextBox>
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nombre:<asp:TextBox ID="TxtNombreClub" runat="server" style="margin-left: 0px"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nombre:<asp:TextBox ID="TxtNombreClub" runat="server" style="margin-left: 0px"></asp:TextBox>
             <br />
             <br />
             &nbsp; Fecha de fundación:<asp:TextBox ID="TxtFechaFund" runat="server"></asp:TextBox>

@@ -14,11 +14,11 @@
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Dirección de Email" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Dirección de Email" required="required" autofocus="autofocus"/>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="required"/>
                 <div id="remember" class="checkbox">
                     <label>
-                        <input type="checkbox" value="remember-me"> Recordarme
+                        <input type="checkbox" value="remember-me"/> Recordarme
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar Sesion</button>
