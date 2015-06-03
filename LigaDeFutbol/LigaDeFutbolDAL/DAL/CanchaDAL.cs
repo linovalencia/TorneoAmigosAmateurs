@@ -48,8 +48,8 @@ namespace LigaDeFutbolDAL.DAL
 
         public static void insertarCancha(CanchaDTO cancha) 
         {
-            string consultaSql = @"INSERT INTO cancha(idCancha,calle,numeroCalle,nombreCalle,habilitada,fechaInaguracion)
-                                   VALUES(@id,@calle,@nroCalle,@nomCancha,@habilitada,@fechaInag)";
+            string consultaSql = @"INSERT INTO cancha(calle,numeroCalle,nombreCalle,habilitada,fechaInaguracion)
+                                   VALUES(@calle,@nroCalle,@nomCancha,@habilitada,@fechaInag)";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
             try 
@@ -57,11 +57,11 @@ namespace LigaDeFutbolDAL.DAL
                 cnn.Open();
                 SqlCommand cmd=new SqlCommand(consultaSql,cnn);
 
-                cmd.Parameters.AddWithValue("@id",cancha.idCancha);
+              //  cmd.Parameters.AddWithValue("@id",cancha.idCancha);
                 cmd.Parameters.AddWithValue("@calle",cancha.calle);
                 cmd.Parameters.AddWithValue("@nroCalle",cancha.numeroCalle);
                 cmd.Parameters.AddWithValue("@nomCancha",cancha.nombreCancha);
-                cmd.Parameters.AddWithValue("@habilitada",cancha.habilitada);
+                cmd.Parameters.AddWithValue("@habilitada", Convert.ToInt32(cancha.habilitada));
                 cmd.Parameters.AddWithValue("@fechaInag",cancha.fechaInaguracion);
 
                 cmd.ExecuteNonQuery();
@@ -102,8 +102,7 @@ namespace LigaDeFutbolDAL.DAL
         { 
         string consultaSql =
                 @"UPDATE cancha 
-                 SET idCancha=@idCancha
-                    , calle=@calle
+                 SET calle=@calle
                     , numeroCalle=@nroCalle
                     , nombreCancha=@nomCancha
                     , habilitada=@habilitada
@@ -115,11 +114,11 @@ namespace LigaDeFutbolDAL.DAL
             try {
                 cnn.Open();
                 SqlCommand cmd= new SqlCommand(consultaSql,cnn);
-                cmd.Parameters.AddWithValue("@idCancha", cancha.idCancha); 
+//                cmd.Parameters.AddWithValue("@idCancha", cancha.idCancha); 
                 cmd.Parameters.AddWithValue("@calle",cancha.calle);
                 cmd.Parameters.AddWithValue("@nroCalle",cancha.numeroCalle);
                 cmd.Parameters.AddWithValue("@nomCancha", cancha.nombreCancha);
-                cmd.Parameters.AddWithValue("@habilitada", cancha.habilitada);
+                cmd.Parameters.AddWithValue("@habilitada", Convert.ToInt32(cancha.habilitada));
                 cmd.Parameters.AddWithValue("@fechaInag", cancha.fechaInaguracion);
                
                 cmd.ExecuteNonQuery();
