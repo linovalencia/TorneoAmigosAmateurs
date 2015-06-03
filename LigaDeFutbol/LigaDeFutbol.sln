@@ -11,6 +11,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "LigaDeFutbolWEB", "http://l
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{52299ec7-b2b2-4a56-aa34-7337c2f50b90}|LigaDeFutbolDAL.dll;{B8853230-19D3-44B9-B017-E92A606BE337}|LigaDeFutbolDTO.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_49857"
 		Debug.AspNetCompiler.PhysicalPath = "LigaDeFutbolWEB\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49857\"

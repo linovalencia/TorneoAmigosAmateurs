@@ -3,16 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        <br />
-        <br />
-        <br />
         &nbsp;<asp:Label ID="LblAdminClub" runat="server" Font-Size="X-Large" Text="Administrar Clubes"></asp:Label>
         <br />
         <br />
         &nbsp;Id Club:&nbsp;&nbsp;<asp:TextBox ID="TxtIdClubBuscar" runat="server"></asp:TextBox>
 &nbsp;<asp:Button ID="BtnBuscarClub" runat="server" Text="Buscar" OnClick="BtnBuscarClub_Click" />
 &nbsp;<asp:Button ID="BtnNuevoClub" runat="server" Text="NuevoClub" OnClick="BtnNuevoClub_Click" />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="idClub" DataSourceID="SqlDataSource1">
+        &nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="idClub" DataSourceID="SqlDataSource1" style="margin-left: 12px" Width="402px">
             <Columns>
                 <asp:BoundField DataField="idClub" HeaderText="idClub" InsertVisible="False" ReadOnly="True" SortExpression="idClub" />
                 <asp:BoundField DataField="nombreClueb" HeaderText="nombreClueb" SortExpression="nombreClueb" />
@@ -32,7 +29,7 @@
             &nbsp; Fecha de fundación:<asp:TextBox ID="TxtFechaFund" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Panel ID="PanelDomicilioClub" runat="server" BorderStyle="Ridge" Height="72px" Width="455px">
+            <asp:Panel ID="PanelDomicilioClub" runat="server" BorderStyle="Ridge" Height="72px" Width="472px" style="margin-left: 12px">
                 Domicilio Sede<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calle:<asp:TextBox ID="TxtCalleDomicilioClub" runat="server"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Número:<asp:TextBox ID="TxtNumDomicilioClub" runat="server" Width="51px"></asp:TextBox>
                 <br />
