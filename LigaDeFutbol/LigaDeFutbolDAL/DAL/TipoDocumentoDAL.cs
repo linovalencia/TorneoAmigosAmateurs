@@ -11,14 +11,14 @@ namespace LigaDeFutbolDAL.DAL
 {
     public class TipoDocumentoDAL
     {
-        //public static string conexion = "Data Source=MARCIO-PC/SQLEXPRESS;Initial Catalog=LigaDeFutbol;Integrated Security=True";
+       
         
         public static List<TipoDocumentoDTO> ObtenerTodo()
         {
             List<TipoDocumentoDTO> listTipoDocumentos = new List<TipoDocumentoDTO>();
             string sql = "SELECT * FROM tipo_documento";
             SqlConnection cn = new SqlConnection(DALBase.StringConexion);
-            //cn.ConnectionString = conexion;
+       
 
             try
             {

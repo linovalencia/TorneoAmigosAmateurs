@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using LigaDeFutbolDAL.DAL;
 using System.Data;
 using System.Data.SqlClient;
+using LigaDeFutbolDTO.Entidad;
 
 public partial class ABMArbitro : System.Web.UI.Page
 {
@@ -17,33 +18,20 @@ public partial class ABMArbitro : System.Web.UI.Page
            CargarComboTipoDocumnto();            
         } 
 
-        /*
-        // Establece el string de conexión
-        string cadenaConexion = "Data Source=MARCIO-PC/SQLEXPRESS;Initial Catalog=LigaDeFutbol;Integrated Security=True";
-        //Data Source=MARCIO-PC\SQLEXPRESS;Initial Catalog=LigaDeFutbol;Integrated Security=True
-
-        // Establece la consulta SQL a ejecutar
-        string consulta = "SELECT * FROM tipo_documento";
-
-        // Crea un DataAdapter que será el encargado de ejecutar la consulta
-        // y Posteriormente ingresar los datos a un DataSet
-        SqlDataAdapter daAutores = new SqlDataAdapter(consulta, cadenaConexion);
-        // Crea el DataSet
-        DataSet dsAutores = new DataSet();
-        // Llena el DataSet con la información de la base de datos
-        daAutores.Fill(dsAutores, "tipo_documento");
-        // Pone el DataTable Authors como fuente de datos para el DropDownList
-        ddlTipoDocumento.DataSource = dsAutores.Tables["tipo_documento"].DefaultView;
-        // Asigna el valor a mostrar en el DropDownList
-        ddlTipoDocumento.DataTextField = "descripcion";
-        // Asigna el valor del value en el DropDownList
-        ddlTipoDocumento.DataValueField = "idTipoDocumento";
-        // Llena el DropDownList con los datos
-        ddlTipoDocumento.DataBind();*/
-   
+        
 
     }
 
+    public void limpiarCampos()
+    {
+        ddlTipoDocumento.SelectedIndex=0;
+        txtNroDocumetno.Text="";
+        txtApellido.Text="";
+        txtNombre.Text="";
+        txtFechaNacimiento.Text="";
+        txtLegajo.Text="";
+    
+    }
     private void CargarComboTipoDocumnto()
     {
         ddlTipoDocumento.DataSource = TipoDocumentoDAL.ObtenerTodo();
@@ -61,8 +49,25 @@ public partial class ABMArbitro : System.Web.UI.Page
     }
     protected void btnGrabar_Click(object sender, EventArgs e)
     {
+        if (Page.IsValid)
+        {
+            ArbitroDTO ar = new ArbitroDTO();
+            ar.idTipoDocumento = int.Parse(ddlTipoDocumento.SelectedValue);
+            ar.numeroDocumento = int.Parse(txtNroDocumetno.Text);
+            ar.apellido = txtApellido.Text;
+            ar.nombre = txtNombre.Text;
+            ar.fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
+            ar.legajo = int.Parse(txtLegajo.Text);
+            // ar.disponibleParaFehca = ChkPrimeraVez.Checked;
+           
+           
 
+            ArbitroDAL.InsertarArbitro(ar);
+            limpiarCampos();
+        }
     }
+
+
     protected void btnEliminar_Click(object sender, EventArgs e)
     {
 

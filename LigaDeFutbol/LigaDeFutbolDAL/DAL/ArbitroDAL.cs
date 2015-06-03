@@ -73,7 +73,9 @@ namespace LigaDeFutbolDAL.DAL
                 cmd.Parameters.AddWithValue("@apellido", arbitro.apellido);
                 cmd.Parameters.AddWithValue("@fechaNac", arbitro.fechaNacimiento);
                 cmd.Parameters.AddWithValue("@legajo", arbitro.legajo);
-                cmd.Parameters.AddWithValue("@dispParaFecha", arbitro.disponibleParaFecha);
+             //falta agregar en el ABMArbitro la parte si esta disponible para fecha
+                 cmd.Parameters.AddWithValue("@dispParaFecha", DBNull.Value);
+
 
                 cmd.ExecuteNonQuery();
                 cnn.Close();
