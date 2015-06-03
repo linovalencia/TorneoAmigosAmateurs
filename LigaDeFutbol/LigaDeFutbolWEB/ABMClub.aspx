@@ -39,9 +39,10 @@
             <br />
             &nbsp; Fecha de fundación:<asp:TextBox ID="TxtFechaFund" runat="server"></asp:TextBox>
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cancha:<asp:DropDownList ID="DdlCancha" runat="server" DataSourceID="SqlDataSource2" DataTextField="nombreCancha" DataValueField="nombreCancha">
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LigaDeFutbolConnectionString1 %>" SelectCommand="SELECT [nombreCancha] FROM [cancha]"></asp:SqlDataSource>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cancha:<asp:DropDownList ID="DdlCancha" runat="server" ValidationGroup="Guardar"  Height="16px" Width="123px">
+                    <asp:ListItem Value="0">Select</asp:ListItem>
+                    <asp:ListItem Value="1">Selected</asp:ListItem>
+                </asp:DropDownList>
             <br />
             <br />
             <asp:Panel ID="PanelDomicilioClub" runat="server" BorderStyle="Ridge" Height="72px" style="margin-left: 12px" Width="472px">
@@ -50,7 +51,7 @@
                 <br />
             </asp:Panel>
             <br />
-&nbsp;&nbsp;<asp:CheckBox ID="ChkPrimeraVez" runat="server" Text="Primera vez en el torneo " TextAlign="Left" />
+            &nbsp;&nbsp;<asp:CheckBox ID="ChkPrimeraVez" runat="server" Text="Primera vez en el torneo " TextAlign="Left" />
             <br />
             &nbsp;<br />
             <br />

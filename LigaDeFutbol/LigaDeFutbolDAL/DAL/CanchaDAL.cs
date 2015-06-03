@@ -29,11 +29,9 @@ namespace LigaDeFutbolDAL.DAL
                     CanchaDTO c= new CanchaDTO();
                     c.idCancha=int.Parse(dr["idCancha"].ToString());
                     c.calle=dr["calle"].ToString();
-                    c.numeroCalle=int.Parse(dr["numeroCalle"].ToString());
-                    if (int.Parse(dr["habilitada"].ToString()) == 0)
-                        c.habilitada = false;
-                    else
-                        c.habilitada = true;
+                    c.numeroCalle = int.Parse(dr["numeroCalle"].ToString());
+                    c.nombreCancha = dr["nombreCancha"].ToString();
+                    c.habilitada = bool.Parse(dr["habilitada"].ToString());
                     c.fechaInaguracion=DateTime.Parse(dr["fechaInaguracion"].ToString());
                     cancha.Add(c);
                 }
