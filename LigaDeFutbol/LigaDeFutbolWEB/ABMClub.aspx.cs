@@ -31,12 +31,13 @@ public partial class ABMClub : System.Web.UI.Page
         {
             ClubDTO club = new ClubDTO();
 
-            club.idClub = int.Parse(TxtIdClubDatos.Text);
             club.nombreClub = TxtNombreClub.Text;
             club.calle = TxtCalleDomicilioClub.Text;
             club.numeroCalle = int.Parse(TxtNumDomicilioClub.Text);
             club.fechaFundacion = DateTime.Parse(TxtFechaFund.Text);
-
+            club.idCancha = 0;
+            club.participoAntesEnLiga = ChkPrimeraVez.Checked;
+           
             ClubDAL.insertarClub(club);
             Response.Redirect("Login.aspx");
         }
