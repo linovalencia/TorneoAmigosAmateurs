@@ -2,6 +2,11 @@
         
 }
 
+.text-center{
+    color: white;
+
+}
+
   .jumbotron
         {
             background-image: url(http://www.wallpaperscover.com/wallpapers/imagenes_futbol_hd-1280x800.jpg);
@@ -12,3 +17,5 @@
             margin-bottom: 8px;
 
         }
+
+  

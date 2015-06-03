@@ -5,18 +5,45 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <link href="css/Style.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/Style.css" rel="stylesheet" />
 
     <div class="container">
         <div class="row">
             <div class="col-md-12 jumbotron">
                 <div class="text-center">
-                    <h1>Bienvenidos!</h1>
-                    <p>Wikipedia es una enciclopedia libre,nota 2 políglota y editada colaborativamente. Es administrada por la Fundación Wikimedia, una organización sin ánimo de lucro cuya financiación está basada en donaciones. Sus más de 37 millones de artículos en 287 idiomas (cantidad que incluye idiomas artificiales como el esperanto, lenguas indígenas o aborígenes como el náhuatl, el maya y las lenguas de las islas Andamán, o lenguas muertas, como el latín, el chino clásico o el anglosajón) han sido redactados conjuntamente por voluntarios de todo el mundo,4 y prácticamente cualquier persona con acceso al proyecto5 puede editarlos. Iniciada en enero de 2001 por Jimmy Wales y Larry Sanger,6 es la mayor y más popular obra de consulta en Internet.7 8 9 10 Desde su fundación, Wikipedia no solo ha ganado en popularidad —se encuentra entre los 10 sitios web más populares del mundo—,10 11 sino que su éxito ha propiciado la aparición de proyectos hermanos.12</p>               
-                    
+                     <h1>Bienvenidos!</h1>
+                    <p>Aquí podrás encontrar información para realizar la gestión de los campeonatos que organiza "Torneo de Amigos Amateurs" y se podran registrar los clubes participantes con todos sus jugadores. </p>                                   
                 </div>
             </div>
         </div>
     </div>
+    <br />
+    <br />
+    <br />
+    <br /> 
 
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row" >
+        <div class="col-md-4">
+          <h2>Arbitro</h2>
+          <p>En esta seccion se podrá realizar el alta, baja, modificación y consulta de los Árbitros</p>
+          <p><a class="btn btn-default" href="ABMArbitro.aspx" role="button">CargarArbitro &raquo;</a></p>
+        </div>
+         
+        <div class="col-md-4">
+          <h2>Cancha</h2>
+          <p>En esta se ccion se podrá realizar el alta, baja, modificación y consulta de las Canchas</p>
+          <p><a class="btn btn-default" href="ABMCancha.aspx" role="button">Cargar Cancha &raquo;</a></p>
+       </div>
+
+        <div class="col-md-4">
+          <h2>Club</h2>
+          <p>En esta seccion se podrá realizar el alta, baja, modificación y consulta de los Clubes</p>
+          <p><a class="btn btn-default" href="ABMClub.aspx" role="button">Cargar Club &raquo;</a></p>
+        </div>
+      </div>     
+    </div> <!-- /container -->
+       
    </asp:Content>
 
