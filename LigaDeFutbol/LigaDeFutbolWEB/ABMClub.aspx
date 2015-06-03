@@ -18,7 +18,7 @@
                 <asp:BoundField DataField="fechaFundacion" HeaderText="fechaFundacion" SortExpression="fechaFundacion" />
             </Columns>
         </asp:GridView> 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LigaDeFutbolConnectionString %>" SelectCommand="SELECT [idClub], [nombreClueb], [calle], [numeroCalle], [fechaFundacion] FROM [club]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LigaDeFutbolConnectionString %>" SelectCommand="SELECT [idClub], [nombreClub], [calle], [numeroCalle], [fechaFundacion] FROM [club]"></asp:SqlDataSource>
         <asp:Panel ID="PanelDatosClub" runat="server" Height="424px" style="margin-bottom: 45px; margin-top: 40px;">
             &nbsp; Datos del Club<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Id Club:<asp:TextBox ID="TxtIdClubDatos" runat="server"></asp:TextBox>
             <br />
