@@ -21,11 +21,7 @@ public partial class ABMClub : System.Web.UI.Page
             DdlCancha.DataBind();
         }
     }
-    protected void BtnBuscarClub_Click(object sender, EventArgs e)
-    {
-        GridView1.DataSource = ClubDAL.buscarClubPorId(int.Parse(TxtIdClubBuscar.Text));
-        GridView1.DataBind();
-    }
+
     protected void BtnNuevoClub_Click(object sender, EventArgs e)
     {
         PanelDatosClub.Visible = true;
@@ -48,4 +44,26 @@ public partial class ABMClub : System.Web.UI.Page
         }
     }
 
+    protected void BtnVerClubes_Click(object sender, EventArgs e)
+    {
+        GridClubes.DataSource = ClubDAL.obtenerClubes();
+        GridClubes.DataBind();
+    }
+
+    protected void BtnCancelar_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ABMClub.aspx");
+    }
+    protected void GridClubes_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ClubDTO c =new ClubDTO();
+        int i = int.Parse(GridClubes.Rows[GridClubes.SelectedIndex].Cells[0].Text);
+        c=ClubDAL.buscarClubPorId(i);
+        TxtIdClubDatos.Text = c.idClub.ToString();
+        TxtNombreClub.Text= c.nombreClub;
+        TxtFechaFund.Text = c.fechaFundacion.ToString();
+        TxtCalleDomicilioClub.Text = c.calle;
+        TxtNumDomicilioClub.Text = c.numeroCalle.ToString();
+         PanelDatosClub.Visible = true;
+    }
 }
