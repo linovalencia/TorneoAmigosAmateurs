@@ -34,9 +34,9 @@ namespace LigaDeFutbolDAL.DAL
                     c.participoAntesEnLiga = bool.Parse(dr["participoAntesEnLiga"].ToString());
                     c.idCancha = int.Parse(dr["idCancha"].ToString());
 
-                    club.Add(c);
-                    cnn.Close();
+                    club.Add(c);   
                 }
+                cnn.Close();
             }catch(Exception ex)
             {
                 if (cnn.State == ConnectionState.Open)

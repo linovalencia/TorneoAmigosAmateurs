@@ -11,4 +11,25 @@ public partial class ABMCancha : System.Web.UI.Page
     {
 
     }
+  
+    protected void btnNuevo_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnGrabar_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnEliminar_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void gvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+
+    }      
 }
