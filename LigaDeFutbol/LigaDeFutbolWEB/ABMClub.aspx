@@ -56,6 +56,8 @@
             <br />
             &nbsp;<br />
             <br />
+            <asp:Button ID="BtnEliminar" runat="server" OnClick="BtnEliminar_Click" Text="Eliminar" />
+            <asp:Button ID="BtnModificar" runat="server" Text="Modificar" OnClick="BtnModificar_Click" />
             <asp:Button ID="BtnGuardarClub" runat="server" OnClick="BtnGuardarClub_Click" style="margin-left: 193px" Text="Guardar" Width="157px" />
             &nbsp;<asp:Button ID="BtnCancelar" runat="server" Text="Cancelar" OnClick="BtnCancelar_Click" Width="138px" />
       

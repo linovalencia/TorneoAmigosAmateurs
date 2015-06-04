@@ -59,11 +59,9 @@ public partial class ABMArbitro : System.Web.UI.Page
             ar.fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
             ar.legajo = int.Parse(txtLegajo.Text);
             // ar.disponibleParaFehca = ChkPrimeraVez.Checked;
-           
-           
-
             ArbitroDAL.InsertarArbitro(ar);
             limpiarCampos();
+            Response.Redirect("ABMArbitro.aspx");
         }
     }
 

@@ -14,6 +14,8 @@ public partial class ABMClub : System.Web.UI.Page
         if (Page.IsPostBack == false)
         {
             PanelDatosClub.Visible = false;
+            BtnEliminar.Visible = false;
+            BtnModificar.Visible = false;
 
             DdlCancha.DataSource = CanchaDAL.obtenerCancha();
             DdlCancha.DataTextField = "nombreCancha";
@@ -40,7 +42,7 @@ public partial class ABMClub : System.Web.UI.Page
             club.participoAntesEnLiga = ChkPrimeraVez.Checked;
            
             ClubDAL.insertarClub(club);
-            Response.Redirect("Login.aspx");
+            Response.Redirect("ABMClub.aspx");
         }
     }
 
@@ -48,6 +50,8 @@ public partial class ABMClub : System.Web.UI.Page
     {
         GridClubes.DataSource = ClubDAL.obtenerClubes();
         GridClubes.DataBind();
+        BtnEliminar.Visible = true;
+        BtnModificar.Visible = true;
     }
 
     protected void BtnCancelar_Click(object sender, EventArgs e)
@@ -65,5 +69,27 @@ public partial class ABMClub : System.Web.UI.Page
         TxtCalleDomicilioClub.Text = c.calle;
         TxtNumDomicilioClub.Text = c.numeroCalle.ToString();
          PanelDatosClub.Visible = true;
+    }
+    protected void BtnEliminar_Click(object sender, EventArgs e)
+    {
+        ClubDAL.eliminarClub(int.Parse(TxtIdClubDatos.Text));
+        Response.Redirect("ABMClub.aspx");
+    }
+    protected void BtnModificar_Click(object sender, EventArgs e)
+    {
+        if (Page.IsValid)
+        {
+            ClubDTO club = new ClubDTO();
+
+            club.idClub = int.Parse(TxtIdClubDatos.Text);
+            club.nombreClub = TxtNombreClub.Text;
+            club.calle = TxtCalleDomicilioClub.Text;
+            club.numeroCalle = int.Parse(TxtNumDomicilioClub.Text);
+            club.fechaFundacion = DateTime.Parse(TxtFechaFund.Text);
+            club.participoAntesEnLiga = ChkPrimeraVez.Checked;
+            club.idCancha = int.Parse(DdlCancha.SelectedValue);
+            ClubDAL.actualizarClub(club);
+            Response.Redirect("ABMClub.aspx");
+        }
     }
 }
