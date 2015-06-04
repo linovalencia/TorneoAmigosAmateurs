@@ -81,13 +81,18 @@ public partial class ABMClub : System.Web.UI.Page
         {
             ClubDTO club = new ClubDTO();
 
-            club.idClub = int.Parse(TxtIdClubDatos.Text);
+            
             club.nombreClub = TxtNombreClub.Text;
             club.calle = TxtCalleDomicilioClub.Text;
             club.numeroCalle = int.Parse(TxtNumDomicilioClub.Text);
             club.fechaFundacion = DateTime.Parse(TxtFechaFund.Text);
-            club.participoAntesEnLiga = ChkPrimeraVez.Checked;
+            if (ChkPrimeraVez.Checked == true)
+                club.participoAntesEnLiga = Boolean.Parse("true");
+            else
+                club.participoAntesEnLiga = Boolean.Parse("false");
+            
             club.idCancha = int.Parse(DdlCancha.SelectedValue);
+            club.idClub = int.Parse(TxtIdClubDatos.Text);
             ClubDAL.actualizarClub(club);
             Response.Redirect("ABMClub.aspx");
         }
