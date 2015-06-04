@@ -137,7 +137,7 @@ namespace LigaDeFutbolDAL.DAL
         {
             string consultaSql =
                 @"UPDATE club 
-                 SET idClub=@idClub
+                 SET  idClub=@idClub
                     , nombreClub=@nom
                     , calle=@calle
                     , numeroCalle=@nroCalle
