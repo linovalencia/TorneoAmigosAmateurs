@@ -136,7 +136,13 @@ namespace LigaDeFutbolDAL.DAL
         public static void actualizarClub(ClubDTO club)
         {
             int id = club.idClub;
-            string consultaSql =@"UPDATE club SET nombreClub=@nom , calle=@calle , numeroCalle=@nroCalle , fechaFundacion=@fechaFun, participoAntesEnLiga=@participoAntes WHERE idClub=@idClub";
+            string consultaSql =@"UPDATE club 
+                                    SET nombreClub=@nom 
+                                    , calle=@calle 
+                                    , numeroCalle=@nroCalle 
+                                    , fechaFundacion=@fechaFun 
+                                    , participoAntesEnLiga=@participoAntes 
+                                    WHERE idClub=@idClub";
 
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
