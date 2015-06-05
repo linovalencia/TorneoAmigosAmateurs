@@ -135,13 +135,14 @@ namespace LigaDeFutbolDAL.DAL
 
         public static void actualizarClub(ClubDTO club)
         {
-            int id = club.idClub;
+           
             string consultaSql =@"UPDATE club 
                                     SET nombreClub=@nom 
                                     , calle=@calle 
                                     , numeroCalle=@nroCalle 
                                     , fechaFundacion=@fechaFun 
-                                    , participoAntesEnLiga=@participoAntes 
+                                    , participoAntesEnLiga=@participoAntes
+                                    , idCancha=@idCancha 
                                     WHERE idClub=@idClub";
 
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
@@ -150,13 +151,14 @@ namespace LigaDeFutbolDAL.DAL
             {
                 cnn.Open();
                 SqlCommand cmd = new SqlCommand(consultaSql, cnn);
-                cmd.Parameters.AddWithValue("@idClub", club.idClub);
+               
                 cmd.Parameters.AddWithValue("@nom", club.nombreClub);
                 cmd.Parameters.AddWithValue("@calle", club.calle);
                 cmd.Parameters.AddWithValue("@nroCalle",club.numeroCalle);
                 cmd.Parameters.AddWithValue("@fechaFun", club.fechaFundacion);
                 cmd.Parameters.AddWithValue("@participoAntes", club.participoAntesEnLiga);
-                cmd.Parameters.AddWithValue("@idCancha", id);
+                cmd.Parameters.AddWithValue("@idCancha", club.idCancha);
+                cmd.Parameters.AddWithValue("@idClub", club.idClub);
 
                 cmd.ExecuteNonQuery();
                 cnn.Close();
