@@ -35,6 +35,10 @@
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nombre:<asp:TextBox ID="TxtNombreClub" runat="server" style="margin-left: 0px" OnTextChanged="TxtNombreClub_TextChanged"></asp:TextBox>
+<<<<<<< HEAD
+=======
+            <asp:Label ID="LblNombreYaUsado" runat="server" Text="El nombre ya pertenece a otro club. Ingrese otro por favor."></asp:Label>
+>>>>>>> a82e459f8b7760304638eabce602fe8c01c6bcfe
             <br />
             <br />
             &nbsp; Fecha de fundación:<asp:TextBox ID="TxtFechaFund" runat="server"></asp:TextBox>
