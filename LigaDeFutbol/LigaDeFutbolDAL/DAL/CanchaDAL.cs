@@ -57,11 +57,11 @@ namespace LigaDeFutbolDAL.DAL
                 cnn.Open();
                 SqlCommand cmd=new SqlCommand(consultaSql,cnn);
 
-              //  cmd.Parameters.AddWithValue("@id",cancha.idCancha);
+                cmd.Parameters.AddWithValue("@id",cancha.idCancha);
                 cmd.Parameters.AddWithValue("@calle",cancha.calle);
                 cmd.Parameters.AddWithValue("@nroCalle",cancha.numeroCalle);
                 cmd.Parameters.AddWithValue("@nomCancha",cancha.nombreCancha);
-                cmd.Parameters.AddWithValue("@habilitada", Convert.ToInt32(cancha.habilitada));
+                cmd.Parameters.AddWithValue("@habilitada", cancha.habilitada);
                 cmd.Parameters.AddWithValue("@fechaInag",cancha.fechaInaguracion);
 
                 cmd.ExecuteNonQuery();

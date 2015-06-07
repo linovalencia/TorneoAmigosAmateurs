@@ -16,6 +16,7 @@ public partial class ABMClub : System.Web.UI.Page
             PanelDatosClub.Visible = false;
             BtnEliminar.Visible = false;
             BtnModificar.Visible = false;
+            LblNombreYaUsado.Visible = false;
 
             DdlCancha.DataSource = CanchaDAL.obtenerCancha();
             DdlCancha.DataTextField = "nombreCancha";
@@ -87,10 +88,27 @@ public partial class ABMClub : System.Web.UI.Page
             club.calle = TxtCalleDomicilioClub.Text;
             club.numeroCalle = int.Parse(TxtNumDomicilioClub.Text);
             club.fechaFundacion = DateTime.Parse(TxtFechaFund.Text);
-            club.participoAntesEnLiga = ChkPrimeraVez.Checked;
+            if (ChkPrimeraVez.Checked == true)
+                club.participoAntesEnLiga = Boolean.Parse("true");
+            else
+                club.participoAntesEnLiga = Boolean.Parse("false");
+            
             club.idCancha = int.Parse(DdlCancha.SelectedValue);
+            club.idClub = int.Parse(TxtIdClubDatos.Text);
             ClubDAL.actualizarClub(club);
             Response.Redirect("ABMClub.aspx");
+        }
+    }
+    protected void TxtNombreClub_TextChanged(object sender, EventArgs e)
+    {
+        List<ClubDTO> clubes = new List<ClubDTO>();
+        foreach (ClubDTO club in ClubDAL.obtenerClubes())
+        {
+            if (TxtNombreClub.Text==club.nombreClub)
+            {
+                LblNombreYaUsado.Visible = true;
+            }
+
         }
     }
 }
