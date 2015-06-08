@@ -68,6 +68,7 @@ public partial class ABMClub : System.Web.UI.Page
         TxtIdClubDatos.Text = c.idClub.ToString();
         TxtNombreClub.Text= c.nombreClub;
         TxtFechaFund.Text = c.fechaFundacion.ToString();
+        DdlCancha.SelectedValue = c.idCancha.ToString();
         TxtCalleDomicilioClub.Text = c.calle;
         TxtNumDomicilioClub.Text = c.numeroCalle.ToString();
          PanelDatosClub.Visible = true;

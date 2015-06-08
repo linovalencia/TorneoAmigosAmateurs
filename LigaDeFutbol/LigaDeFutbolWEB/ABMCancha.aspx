@@ -11,6 +11,18 @@
                 <div class="panel-heading">
                     <h4>Cancha</h4>
                 </div>
+
+                <div class="panel-body">
+                    <form class='form-horizontal' role='form'>
+                         <div class="form-group">
+                                <label for="inputCliente" class="col-md-4 control-label">
+                                     Id Cancha</label>
+                            <div class="col-md-8">
+                                    <asp:TextBox ID="TxtIdCancha" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                         </div>
+
+
                 <div class="panel-body">
                     <form class='form-horizontal' role='form'>
                          <div class="form-group">

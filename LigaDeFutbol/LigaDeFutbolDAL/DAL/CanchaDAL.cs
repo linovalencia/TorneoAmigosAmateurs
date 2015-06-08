@@ -7,6 +7,8 @@ using LigaDeFutbolDTO;
 using System.Data;
 using System.Data.SqlClient;
 using LigaDeFutbolDTO.Entidad;
+using LigaDeFutbolDAL;
+
 
 namespace LigaDeFutbolDAL.DAL
 {
@@ -46,9 +48,24 @@ namespace LigaDeFutbolDAL.DAL
             return cancha;
         }
 
+        public static int buscarIDCancha()
+        {
+            string buscarIdCancha = "SELECT MAX(idCancha) as id FROM cancha";
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand(buscarIdCancha, cnn);
+            int idCancha = Convert.ToInt32(cmd.ExecuteScalar());
+            
+            cnn.Close();
+
+            return idCancha + 1;
+
+        }
         public static void insertarCancha(CanchaDTO cancha) 
         {
-            string consultaSql = @"INSERT INTO cancha(calle,numeroCalle,nombreCalle,habilitada,fechaInaguracion)
+            string consultaSql = @"INSERT INTO cancha(calle,numeroCalle,nombreCancha,habilitada,fechaInaguracion)
                                    VALUES(@calle,@nroCalle,@nomCancha,@habilitada,@fechaInag)";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
@@ -61,7 +78,7 @@ namespace LigaDeFutbolDAL.DAL
                 cmd.Parameters.AddWithValue("@calle",cancha.calle);
                 cmd.Parameters.AddWithValue("@nroCalle",cancha.numeroCalle);
                 cmd.Parameters.AddWithValue("@nomCancha",cancha.nombreCancha);
-                cmd.Parameters.AddWithValue("@habilitada", cancha.habilitada);
+             //   cmd.Parameters.AddWithValue("@habilitada", cancha.habilitada);
                 cmd.Parameters.AddWithValue("@fechaInag",cancha.fechaInaguracion);
 
                 cmd.ExecuteNonQuery();
