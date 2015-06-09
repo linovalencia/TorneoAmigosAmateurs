@@ -33,7 +33,7 @@ namespace LigaDeFutbolDAL.DAL
                     c.calle=dr["calle"].ToString();
                     c.numeroCalle = int.Parse(dr["numeroCalle"].ToString());
                     c.nombreCancha = dr["nombreCancha"].ToString();
-                    c.habilitada = bool.Parse(dr["habilitada"].ToString());
+                //    c.habilitada = bool.Parse(dr["habilitada"].ToString());
                     c.fechaInaguracion=DateTime.Parse(dr["fechaInaguracion"].ToString());
                     cancha.Add(c);
                 }

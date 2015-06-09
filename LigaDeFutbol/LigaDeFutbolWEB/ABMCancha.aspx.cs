@@ -14,7 +14,8 @@ public partial class ABMCancha : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+      gvCancha.DataSource = CanchaDAL.obtenerCancha();
+        gvCancha.DataBind();
         TxtIdCancha.Enabled = false;
         
     }
