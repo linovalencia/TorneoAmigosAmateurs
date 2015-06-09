@@ -124,8 +124,8 @@
                 <div class="panel-body">
                     <asp:GridView ID="gvCancha" runat="server" CssClass="table table-hover table-striped"
                         GridLines="None" AutoGenerateColumns="False" 
-                        OnSelectedIndexChanged="gvClientes_SelectedIndexChanged" AllowPaging="True" 
-                        PageSize="15" OnPageIndexChanging="gvClientes_PageIndexChanging" Width="438px">
+                        OnSelectedIndexChanged="gvCancha_SelectedIndexChanged" AllowPaging="True" 
+                        PageSize="15" OnPageIndexChanging="gvCancha_PageIndexChanging" Width="438px">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="idCancha" HeaderText="idCancha" Visible="false" />
