@@ -65,8 +65,8 @@ namespace LigaDeFutbolDAL.DAL
         }
         public static void insertarCancha(CanchaDTO cancha) 
         {
-            string consultaSql = @"INSERT INTO cancha(calle,numeroCalle,nombreCancha,habilitada,fechaInaguracion)
-                                   VALUES(@calle,@nroCalle,@nomCancha,@habilitada,@fechaInag)";
+            string consultaSql = @"INSERT INTO cancha(calle,numeroCalle,nombreCancha,fechaInaguracion)
+                                   VALUES(@calle,@nroCalle,@nomCancha,@fechaInag)";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
             try 
