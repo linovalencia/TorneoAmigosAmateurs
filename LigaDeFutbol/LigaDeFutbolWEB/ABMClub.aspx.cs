@@ -102,14 +102,9 @@ public partial class ABMClub : System.Web.UI.Page
     }
     protected void TxtNombreClub_TextChanged(object sender, EventArgs e)
     {
-        List<ClubDTO> clubes = new List<ClubDTO>();
-        foreach (ClubDTO club in ClubDAL.obtenerClubes())
+        if (ClubDAL.ComprobarNombreClubExiste(TxtNombreClub.Text) == 1)
         {
-            if (TxtNombreClub.Text==club.nombreClub)
-            {
-                LblNombreYaUsado.Visible = true;
-            }
-
+            LblNombreYaUsado.Visible = true;
         }
     }
 }

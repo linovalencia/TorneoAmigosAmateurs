@@ -171,5 +171,20 @@ namespace LigaDeFutbolDAL
                 throw new ApplicationException("Error al modificar el Club " + ex.ToString());
             }
         }
+        public static int ComprobarNombreClubExiste(string nombreClub)
+        {
+            string consultaSql = @"SELECT COUNT * FROM club
+                                    WHERE nombreClub=@nom";
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand(consultaSql, cnn);
+            cmd.Parameters.AddWithValue(@"nom", nombreClub);
+            int existe = Convert.ToInt32(cmd.ExecuteScalar());
+
+            cnn.Close();
+            return existe;
+        }
     }
 }
