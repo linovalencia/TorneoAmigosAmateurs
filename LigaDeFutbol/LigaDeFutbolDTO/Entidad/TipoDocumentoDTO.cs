@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace LigaDeFutbolDTO
 {
-    public class TipoDocumentoDTO//:DTOBase
+    public class TipoDocumentoDTO:DTOBase
     {
         public int idTipoDocumento { get; set; }
         public string descripcion { get; set; }
 
-        //public TipoDocumentoDTO()
-        //{
-        //    idTipoDocumento = int_NullValue;
-        //    descripcion = string_NullValue;
-        //    IsNew = true;
-        //}
+        public TipoDocumentoDTO()
+        {
+            idTipoDocumento = int_NullValue;
+            descripcion = string_NullValue;
+            IsNew = true;
+        }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using LigaDeFutbolDTO.Entidad;
-using LigaDeFutbolDAL.DAL;
+using LigaDeFutbolDTO;
 using LigaDeFutbolDAL;
+
 
 
 
@@ -62,7 +62,15 @@ public partial class ABMCancha : System.Web.UI.Page
     }
     protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
     {
+        CanchaDTO cancha = new CanchaDTO();
 
+        int id = int.Parse(gvCancha.Rows[1].Cells.ToString());
+        CanchaDAL.buscarClubPorId(id);
+        TxtIdCancha.Text = cancha.idCancha.ToString();
+        txtNombre.Text = cancha.nombreCancha;
+        txtCalle.Text = cancha.calle;
+        txtNroCalle.Text = cancha.numeroCalle.ToString();
+        txtFechaIn.Text = cancha.fechaInaguracion.ToString();
     }
     protected void gvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {

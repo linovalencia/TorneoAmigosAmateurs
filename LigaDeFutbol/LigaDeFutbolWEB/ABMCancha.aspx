@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ABMCancha.aspx.cs" Inherits="ABMCancha" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .table-striped {}
+        .panel-primary {
+            width: 459px;
+            margin-right: 119px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container">
@@ -111,21 +118,22 @@
         <div class="col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h4>
+                    <h4 style="width: 397px">
                         Listado de Canchas</h4>
                 </div>
                 <div class="panel-body">
-                    <asp:GridView ID="gvClientes" runat="server" CssClass="table table-hover table-striped"
-                        GridLines="None" AutoGenerateColumns="False" DataKeyNames="nro" 
+                    <asp:GridView ID="gvCancha" runat="server" CssClass="table table-hover table-striped"
+                        GridLines="None" AutoGenerateColumns="False" 
                         OnSelectedIndexChanged="gvClientes_SelectedIndexChanged" AllowPaging="True" 
-                        PageSize="15" OnPageIndexChanging="gvClientes_PageIndexChanging">
+                        PageSize="15" OnPageIndexChanging="gvClientes_PageIndexChanging" Width="438px">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
-                            <asp:BoundField DataField="idTipoDocumento" HeaderText="idTipoDocumento" Visible="false" />
-                            <asp:BoundField DataField="nombreTipoDocumento" HeaderText="TipoDoc" />
-                            <asp:BoundField DataField="nroDocumento" HeaderText="NroDoc" />
-                            <asp:BoundField DataField="apellido" HeaderText="Apellido       " />
-                            <asp:BoundField DataField="nombre" HeaderText="Nombre       " />
+                            <asp:BoundField DataField="idCancha" HeaderText="idCancha" Visible="false" />
+                              <asp:BoundField DataField="idCancha" HeaderText="idCancha" />
+                            <asp:BoundField DataField="nombreCancha" HeaderText="Nombre" />
+                            <asp:BoundField DataField="fechaInaguracion" HeaderText="Fecha Inaguración" />
+                          <%--  <asp:BoundField DataField="apellido" HeaderText="Apellido       " />
+                            <asp:BoundField DataField="nombre" HeaderText="Nombre       " />--%>
                         </Columns>
                     </asp:GridView>
                 </div>

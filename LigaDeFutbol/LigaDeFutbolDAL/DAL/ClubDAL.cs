@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LigaDeFutbolDTO.Entidad;
+using LigaDeFutbolDTO;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace LigaDeFutbolDAL.DAL
+namespace LigaDeFutbolDAL
 {
     public class ClubDAL
     {

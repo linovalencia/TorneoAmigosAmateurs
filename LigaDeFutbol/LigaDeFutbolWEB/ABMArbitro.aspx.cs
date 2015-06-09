@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using LigaDeFutbolDAL.DAL;
+using LigaDeFutbolDAL;
 using System.Data;
 using System.Data.SqlClient;
-using LigaDeFutbolDTO.Entidad;
+using LigaDeFutbolDTO;
 
 public partial class ABMArbitro : System.Web.UI.Page
 {

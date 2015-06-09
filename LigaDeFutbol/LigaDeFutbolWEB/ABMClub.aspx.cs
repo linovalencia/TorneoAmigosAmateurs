@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using LigaDeFutbolDAL.DAL;
-using LigaDeFutbolDTO.Entidad;
+using LigaDeFutbolDAL;
+using LigaDeFutbolDTO;
 
 public partial class ABMClub : System.Web.UI.Page
 {
@@ -17,7 +17,7 @@ public partial class ABMClub : System.Web.UI.Page
             BtnEliminar.Visible = false;
             BtnModificar.Visible = false;
             LblNombreYaUsado.Visible = false;
-
+          
             DdlCancha.DataSource = CanchaDAL.obtenerCancha();
             DdlCancha.DataTextField = "nombreCancha";
             DdlCancha.DataValueField = "idCancha";

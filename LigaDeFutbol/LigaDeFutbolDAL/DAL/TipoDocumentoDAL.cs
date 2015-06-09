@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using LigaDeFutbolDTO;
 
-namespace LigaDeFutbolDAL.DAL
+namespace LigaDeFutbolDAL
 {
     public class TipoDocumentoDAL
     {

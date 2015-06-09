@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace LigaDeFutbolDAL.DAL
+namespace LigaDeFutbolDAL
 {
     public class UsuarioDAL
     {

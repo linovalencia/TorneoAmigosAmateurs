@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using LigaDeFutbolDTO;
 using System.Data;
 using System.Data.SqlClient;
-using LigaDeFutbolDTO.Entidad;
+using LigaDeFutbolDTO;
 using LigaDeFutbolDAL;
 
 
-namespace LigaDeFutbolDAL.DAL
+namespace LigaDeFutbolDAL
 {
     public class CanchaDAL
     {
@@ -148,6 +148,39 @@ namespace LigaDeFutbolDAL.DAL
                     cnn.Close();
                 throw new ApplicationException("Error al modificar la Cancha "+ ex.ToString());
             }
+        }
+
+        public static CanchaDTO buscarClubPorId(int idCancha)
+        {
+            string consultaSql = @"SELECT * FROM cancha
+                                WHERE idCancha=@id";
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+            CanchaDTO c = new CanchaDTO();
+            try
+            {
+
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(consultaSql, cnn);
+                cmd.Parameters.AddWithValue(@"id", idCancha);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    c.idCancha = int.Parse(dr["idCancha"].ToString());
+                    c.calle = dr["calle"].ToString();
+                    c.numeroCalle =int.Parse(dr["numeroCalle"].ToString());
+                    c.nombreCancha = dr["nombreCancha"].ToString();
+                   //c.habilitada = bool.Parse(dr["habilitada"].ToString());
+                    c.fechaInaguracion = DateTime.Parse(dr["fechaInaguracion"].ToString());
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            return c;
         }
         
         

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LigaDeFutbolDTO.Entidad
+namespace LigaDeFutbolDTO
 {
     public class JugadorDTO:DTOBase
     {

@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LigaDeFutbolDTO.Entidad;
-using LigaDeFutbolDTO.Util;
+using LigaDeFutbolDTO;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 
 
-namespace LigaDeFutbolDAL.DAL
+namespace LigaDeFutbolDAL
 {
    public class ArbitroDAL
     {
