@@ -14,8 +14,7 @@ public partial class ABMCancha : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-      gvCancha.DataSource = CanchaDAL.obtenerCancha();
-        gvCancha.DataBind();
+        cargarGrilla();
         TxtIdCancha.Enabled = false;
         
     }
@@ -26,13 +25,7 @@ public partial class ABMCancha : System.Web.UI.Page
         //TxtIdCancha.Text = id.ToString();
     }
 
-    public void limpiarCampos() 
-    {
-        txtNombre.Text = "";
-        txtCalle.Text = "";
-        txtNroCalle.Text = "";
-        txtFechaIn.Text = "";
-    }
+   
     protected void btnGrabar_Click(object sender, EventArgs e)
     {
         if (Page.IsValid)
@@ -52,28 +45,41 @@ public partial class ABMCancha : System.Web.UI.Page
 
             CanchaDAL.insertarCancha(c);
             limpiarCampos();
+            cargarGrilla();
         }
     }
+
+
     protected void btnEliminar_Click(object sender, EventArgs e)
     {
         CanchaDAL.eliminarCancha(int.Parse(TxtIdCancha.Text));
-
+        limpiarCampos();
+        cargarGrilla();
         
     }
     protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
     {
         CanchaDTO cancha = new CanchaDTO();
 
-        int id = int.Parse(gvCancha.Rows[1].Cells.ToString());
-        CanchaDAL.buscarClubPorId(id);
+        int id = int.Parse(gvCancha.Rows[gvCancha.SelectedIndex].Cells[2].Text);
+        cancha=CanchaDAL.buscarClubPorId(id);
         TxtIdCancha.Text = cancha.idCancha.ToString();
         txtNombre.Text = cancha.nombreCancha;
         txtCalle.Text = cancha.calle;
         txtNroCalle.Text = cancha.numeroCalle.ToString();
         txtFechaIn.Text = cancha.fechaInaguracion.ToString();
     }
-    protected void gvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    public void limpiarCampos()
     {
+        txtNombre.Text = "";
+        txtCalle.Text = "";
+        txtNroCalle.Text = "";
+        txtFechaIn.Text = "";
+    }
 
-    }      
+    public void cargarGrilla()
+    {
+        gvCancha.DataSource = CanchaDAL.obtenerCancha();
+        gvCancha.DataBind();
+    }
 }

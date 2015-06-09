@@ -109,9 +109,10 @@ namespace LigaDeFutbolDAL
 
             }catch(Exception ex)
             {
-            if (cnn.State == ConnectionState.Open)
-                    cnn.Close();
-                throw new ApplicationException("Error al eliminar una Cancha " + ex.ToString());
+                ex.ToString();
+            //if (cnn.State == ConnectionState.Open)
+            //        cnn.Close();
+            //    throw new ApplicationException("Error al eliminar una Cancha " + ex.ToString());
             }
         }
 
@@ -174,7 +175,7 @@ namespace LigaDeFutbolDAL
                     c.fechaInaguracion = DateTime.Parse(dr["fechaInaguracion"].ToString());
                     
                 }
-
+                cnn.Close();
             }
             catch (Exception ex)
             {
