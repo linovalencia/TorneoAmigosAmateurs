@@ -14,6 +14,7 @@ public partial class ABMCancha : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
         //cargarGrilla();
         TxtIdCancha.Enabled = false;
         
@@ -21,8 +22,8 @@ public partial class ABMCancha : System.Web.UI.Page
   
     protected void btnNuevo_Click(object sender, EventArgs e)
     {
-        //int id = CanchaDAL.buscarIDCancha();
-        //TxtIdCancha.Text = id.ToString();
+        int id = Convert.ToInt32(CanchaDAL.ObtenerIDCancha());
+        TxtIdCancha.Text = id.ToString();
     }
 
    
@@ -58,6 +59,7 @@ public partial class ABMCancha : System.Web.UI.Page
         
     }
     // protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
+    //protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
     //{
     //    CanchaDTO cancha = new CanchaDTO();
 
@@ -82,4 +84,16 @@ public partial class ABMCancha : System.Web.UI.Page
     //    gvCancha.DataSource = CanchaDAL.obtenerCancha();
     //    gvCancha.DataBind();
     //}
+    public void cargarGrilla()
+    {
+        //gvCancha.DataSource = CanchaDAL.obtenerCancha();
+        //gvCancha.DataBind();
+    }
+    protected void txtNombre_TextChanged(object sender, EventArgs e)
+    {
+        if(CanchaDAL.ExisteNombre(txtNombre.Text)==1)
+        {
+            existeCancha.Visible = true ;
+        }
+    }
 }
