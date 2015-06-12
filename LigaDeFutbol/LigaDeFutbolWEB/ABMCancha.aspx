@@ -122,7 +122,7 @@
                         Listado de Canchas</h4>
                 </div>
                 <div class="panel-body">
-                    <asp:GridView ID="gvCancha" runat="server" CssClass="table table-hover table-striped"
+                    <%--  <asp:GridView ID="gvCancha" runat="server" CssClass="table table-hover table-striped"
                         GridLines="None" AutoGenerateColumns="False" 
                         OnSelectedIndexChanged="gvCancha_SelectedIndexChanged" AllowPaging="True" 
                         PageSize="15" OnPageIndexChanging="gvCancha_PageIndexChanging" Width="438px">
