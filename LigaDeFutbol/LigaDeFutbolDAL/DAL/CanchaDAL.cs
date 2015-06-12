@@ -48,7 +48,30 @@ namespace LigaDeFutbolDAL
             return cancha;
         }
 
-        public static int buscarIDCancha()
+
+        public static int ExisteNombre(string nombre) 
+        {
+            int cant = 0;
+            string sql = @"SELECT COUNT(*) FROM cancha
+                        WHERE nombreCancha=@nombre";
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cnn);
+                cmd.Parameters.AddWithValue(@"nombre", nombre);
+                cant = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+
+            return cant;
+        }
+
+        public static int ObtenerIDCancha()
         {
             string buscarIdCancha = "SELECT MAX(idCancha) as id FROM cancha";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
