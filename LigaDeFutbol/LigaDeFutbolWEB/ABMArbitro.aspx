@@ -124,7 +124,7 @@
                     <asp:GridView ID="gvClientes" runat="server" CssClass="table table-hover table-striped"
                         GridLines="None" AutoGenerateColumns="False" DataKeyNames="nroDocumento" 
                         OnSelectedIndexChanged="gvClientes_SelectedIndexChanged" AllowPaging="True" 
-                        PageSize="15" OnPageIndexChanging="gvClientes_PageIndexChanging">
+                        PageSize="15" OnPageIndexChanging="gvClientes_PageIndexChanging"  Width="438px">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="idTipoDocumento" HeaderText="idTipoDocumento" Visible="false" />

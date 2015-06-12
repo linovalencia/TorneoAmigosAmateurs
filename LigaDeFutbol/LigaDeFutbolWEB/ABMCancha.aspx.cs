@@ -14,6 +14,7 @@ public partial class ABMCancha : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+      
         cargarGrilla();
         TxtIdCancha.Enabled = false;
         
@@ -21,8 +22,8 @@ public partial class ABMCancha : System.Web.UI.Page
   
     protected void btnNuevo_Click(object sender, EventArgs e)
     {
-        //int id = CanchaDAL.buscarIDCancha();
-        //TxtIdCancha.Text = id.ToString();
+        int id = Convert.ToInt32(CanchaDAL.ObtenerIDCancha());
+        TxtIdCancha.Text = id.ToString();
     }
 
    
@@ -57,18 +58,18 @@ public partial class ABMCancha : System.Web.UI.Page
         cargarGrilla();
         
     }
-    protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        CanchaDTO cancha = new CanchaDTO();
+    //protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
+    //{
+    //    CanchaDTO cancha = new CanchaDTO();
 
-        int id = int.Parse(gvCancha.Rows[gvCancha.SelectedIndex].Cells[2].Text);
-        cancha=CanchaDAL.buscarClubPorId(id);
-        TxtIdCancha.Text = cancha.idCancha.ToString();
-        txtNombre.Text = cancha.nombreCancha;
-        txtCalle.Text = cancha.calle;
-        txtNroCalle.Text = cancha.numeroCalle.ToString();
-        txtFechaIn.Text = cancha.fechaInaguracion.ToString();
-    }
+    //    int id = int.Parse(gvCancha.Rows[gvCancha.SelectedIndex].Cells[2].Text);
+    //    cancha=CanchaDAL.buscarClubPorId(id);
+    //    TxtIdCancha.Text = cancha.idCancha.ToString();
+    //    txtNombre.Text = cancha.nombreCancha;
+    //    txtCalle.Text = cancha.calle;
+    //    txtNroCalle.Text = cancha.numeroCalle.ToString();
+    //    txtFechaIn.Text = cancha.fechaInaguracion.ToString();
+    //}
     public void limpiarCampos()
     {
         txtNombre.Text = "";
@@ -79,7 +80,14 @@ public partial class ABMCancha : System.Web.UI.Page
 
     public void cargarGrilla()
     {
-        gvCancha.DataSource = CanchaDAL.obtenerCancha();
-        gvCancha.DataBind();
+        //gvCancha.DataSource = CanchaDAL.obtenerCancha();
+        //gvCancha.DataBind();
+    }
+    protected void txtNombre_TextChanged(object sender, EventArgs e)
+    {
+        if(CanchaDAL.ExisteNombre(txtNombre.Text)==1)
+        {
+            existeCancha.Visible = true ;
+        }
     }
 }

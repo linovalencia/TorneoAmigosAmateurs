@@ -36,12 +36,13 @@
                             <label for="inputCliente" class="col-md-4 control-label">
                                 Nombre</label>
                             <div class="col-md-8">
-                                <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server" OnTextChanged="txtNombre_TextChanged" AutoPostBack="True"></asp:TextBox>
                                 <asp:RegularExpressionValidator ID="validacionNombre" runat="server" ErrorMessage="Ingrese un nombre valido"
                                     ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z ]*$" CssClass="alert-danger"
                                     Display="Dynamic"></asp:RegularExpressionValidator>
                                 <asp:RequiredFieldValidator ID="validacionNombre2" runat="server" ControlToValidate="txtNombre"
                                     ErrorMessage="Ingrese un nombre" CssClass="alert-danger" Display="Dynamic"></asp:RequiredFieldValidator>
+                                <asp:CustomValidator ID="existeCancha" runat="server" ErrorMessage="Ya existe una cancha con este nombre"></asp:CustomValidator>
                             </div>
                         </div>
 
@@ -122,20 +123,18 @@
                         Listado de Canchas</h4>
                 </div>
                 <div class="panel-body">
-                    <asp:GridView ID="gvCancha" runat="server" CssClass="table table-hover table-striped"
-                        GridLines="None" AutoGenerateColumns="False" 
-                        OnSelectedIndexChanged="gvCancha_SelectedIndexChanged" AllowPaging="True" 
+                 <%--   <asp:GridView ID="gvCancha" runat="server" CssClass="table table-hover table-striped"
+                        GridLines="None" AutoGenerateColumns="False" DataKeyNames="idCancha"
+                        OnSelectedIndexChanged="gvCancha_SelectedIndexChanged" AllowPaging="True"
                         PageSize="15" OnPageIndexChanging="gvCancha_PageIndexChanging" Width="438px">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="idCancha" HeaderText="idCancha" Visible="false" />
-                              <asp:BoundField DataField="idCancha" HeaderText="idCancha" />
+                            <asp:BoundField DataField="idCancha" HeaderText="idCancha" />
                             <asp:BoundField DataField="nombreCancha" HeaderText="Nombre" />
                             <asp:BoundField DataField="fechaInaguracion" HeaderText="Fecha Inaguración" />
-                          <%--  <asp:BoundField DataField="apellido" HeaderText="Apellido       " />
-                            <asp:BoundField DataField="nombre" HeaderText="Nombre       " />--%>
                         </Columns>
-                    </asp:GridView>
+                    </asp:GridView>--%>
                 </div>
             </div>
         </div>
