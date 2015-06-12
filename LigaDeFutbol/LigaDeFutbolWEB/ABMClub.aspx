@@ -34,10 +34,9 @@
             &nbsp; Datos del Club<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Id Club:<asp:TextBox ID="TxtIdClubDatos" runat="server"></asp:TextBox>
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nombre:<asp:TextBox ID="TxtNombreClub" runat="server" style="margin-left: 0px" OnTextChanged="TxtNombreClub_TextChanged"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nombre:<asp:TextBox ID="TxtNombreClub" runat="server" style="margin-left: 0px" onTa AutoPostBack="True" OnTextChanged="TxtNombreClub_TextChanged"></asp:TextBox>
 
-            <asp:Label ID="LblNombreYaUsado" runat="server" Text="El nombre ya pertenece a otro club. Ingrese otro por favor."></asp:Label>
-
+            <asp:Label ID="LblNombreYaUsado" runat="server" ForeColor="#CC3300" Text="El nombre ya pertenece a otro club. Ingrese otro por favor."></asp:Label>
             <br />
             <br />
             &nbsp; Fecha de fundación:<asp:TextBox ID="TxtFechaFund" runat="server"></asp:TextBox>

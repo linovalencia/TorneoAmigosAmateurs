@@ -31,7 +31,7 @@ public partial class ABMClub : System.Web.UI.Page
     }
     protected void BtnGuardarClub_Click(object sender, EventArgs e)
     {
-        if (Page.IsValid)
+        if (Page.IsValid && ClubDAL.ComprobarNombreClubExiste(TxtNombreClub.Text) == 0)
         {
             ClubDTO club = new ClubDTO();
 
@@ -44,6 +44,12 @@ public partial class ABMClub : System.Web.UI.Page
            
             ClubDAL.insertarClub(club);
             Response.Redirect("ABMClub.aspx");
+        }
+        else
+        {
+            TxtNombreClub.Text ="";
+            TxtNombreClub.Focus();
+            LblNombreYaUsado.Visible = true;
         }
     }
 
@@ -100,11 +106,16 @@ public partial class ABMClub : System.Web.UI.Page
             Response.Redirect("ABMClub.aspx");
         }
     }
+  
     protected void TxtNombreClub_TextChanged(object sender, EventArgs e)
     {
         if (ClubDAL.ComprobarNombreClubExiste(TxtNombreClub.Text) == 1)
         {
             LblNombreYaUsado.Visible = true;
+        }
+        else
+        {
+            LblNombreYaUsado.Visible = false;
         }
     }
 }
