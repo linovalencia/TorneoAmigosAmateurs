@@ -36,13 +36,14 @@
                             <label for="inputCliente" class="col-md-4 control-label">
                                 Nombre</label>
                             <div class="col-md-8">
-                                <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server" OnTextChanged="txtNombre_TextChanged" AutoPostBack="True"></asp:TextBox>
+                                <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server" OnTextChanged="txtNombre_TextChanged" AutoPostBack="True" CausesValidation="True"></asp:TextBox>
                                 <asp:RegularExpressionValidator ID="validacionNombre" runat="server" ErrorMessage="Ingrese un nombre valido"
                                     ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z ]*$" CssClass="alert-danger"
                                     Display="Dynamic"></asp:RegularExpressionValidator>
                                 <asp:RequiredFieldValidator ID="validacionNombre2" runat="server" ControlToValidate="txtNombre"
                                     ErrorMessage="Ingrese un nombre" CssClass="alert-danger" Display="Dynamic"></asp:RequiredFieldValidator>
-                                <asp:CustomValidator ID="existeCancha" runat="server" ErrorMessage="Ya existe una cancha con este nombre"></asp:CustomValidator>
+                                <asp:RequiredFieldValidator ID="existeNombre" runat="server" ControlToValidate="txtNombre"
+                                    ErrorMessage="Ya existe este nombre" CssClass="alert-danger" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         </div>
 

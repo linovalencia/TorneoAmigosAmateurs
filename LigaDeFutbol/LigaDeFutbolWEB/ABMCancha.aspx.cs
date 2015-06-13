@@ -22,8 +22,16 @@ public partial class ABMCancha : System.Web.UI.Page
   
     protected void btnNuevo_Click(object sender, EventArgs e)
     {
-        int id = Convert.ToInt32(CanchaDAL.ObtenerIDCancha());
-        TxtIdCancha.Text = id.ToString();
+        if (btnNuevo.Text == "Nuevo")
+        {
+            int id = Convert.ToInt32(CanchaDAL.ObtenerIDCancha());
+            TxtIdCancha.Text = id.ToString();
+        }
+        if (btnNuevo.Text == "Modificar")
+        { 
+        
+        
+        }
     }
 
    
@@ -91,9 +99,12 @@ public partial class ABMCancha : System.Web.UI.Page
     }
     protected void txtNombre_TextChanged(object sender, EventArgs e)
     {
-        if(CanchaDAL.ExisteNombre(txtNombre.Text)==1)
-        {
-            existeCancha.Visible = true ;
-        }
+       
+        
+            if (CanchaDAL.ExisteNombre(txtNombre.Text) == 1)
+            {
+                existeNombre.ErrorMessage.Trim();
+            }
+        
     }
 }

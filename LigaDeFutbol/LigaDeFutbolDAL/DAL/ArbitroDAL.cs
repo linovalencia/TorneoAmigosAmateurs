@@ -36,16 +36,18 @@ namespace LigaDeFutbolDAL
                     ar.numeroDocumento = int.Parse(dr["numeroDocumento"].ToString());
                     ar.nombre = dr["nombre"].ToString();
                     ar.apellido = dr["apellido"].ToString();
-                    ar.fechaNacimiento = DateTime.Parse(dr["nroDoc"].ToString());
+                    ar.fechaNacimiento = DateTime.Parse(dr["fechaNacimiento"].ToString());
                     ar.legajo = int.Parse(dr["legajo"].ToString());
-                    if (int.Parse(dr["disponibleParaFecha"].ToString()) == 0)
-                        ar.disponibleParaFecha = false;
-                    else
-                        ar.disponibleParaFecha = true;
+                    //if (int.Parse(dr["disponibleParaFecha"].ToString()) == 0)
+                    //    ar.disponibleParaFecha = false;
+                    //else
+                    //    ar.disponibleParaFecha = true;
                     arbitros.Add(ar);
                 }
                 cnn.Close();
             }
+
+
             catch (SqlException ex)
             {
                  if (cnn.State == ConnectionState.Open)
@@ -56,6 +58,62 @@ namespace LigaDeFutbolDAL
             return arbitros;
         }
 
+        public static ArbitroDTO buscarArbitroPorLegajo(int legajo)
+        {
+            string consultaSql = @"SELECT * FROM arbitro
+                                WHERE legajo=@leg";
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+            ArbitroDTO a = new ArbitroDTO();
+            try
+            {
+
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(consultaSql, cnn);
+                cmd.Parameters.AddWithValue(@"leg", legajo);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    a.idTipoDocumento = int.Parse(dr["idTipoDocumento"].ToString());
+                    a.numeroDocumento =int.Parse(dr["numeroDocumento"].ToString());
+                    a.nombre = dr["nombre"].ToString();
+                    a.apellido = dr["apellido"].ToString();
+                    a.fechaNacimiento = DateTime.Parse(dr["fechaNacimiento"].ToString());
+                    a.legajo = int.Parse(dr["legajo"].ToString());
+                    //a.disponibleParaFecha = bool.Parse(dr["disponibleParaFecha"].ToString());
+                    
+
+                }
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            return a;
+        }
+        public static int obtenerNroLegajo(string legajo)
+        {
+            int cant=0;
+            string sql = @"SELECT COUNT(*) FROM arbitro 
+                        WHERE legajo=@leg";
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cnn);
+                cmd.Parameters.AddWithValue(@"leg", legajo);
+                cant = Convert.ToInt32(cmd.ExecuteScalar());
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            return cant;
+        }
+      
         public static void InsertarArbitro(ArbitroDTO arbitro)
         { 
             string consultaSql=@"INSERT INTO arbitro(idTipoDocumento,numeroDocumento,nombre,apellido,fechaNacimiento,legajo,disponibleParaFecha)

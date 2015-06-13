@@ -122,14 +122,12 @@
                 </div>
                 <div class="panel-body">
                     <asp:GridView ID="gvClientes" runat="server" CssClass="table table-hover table-striped"
-                        GridLines="None" AutoGenerateColumns="False" DataKeyNames="nroDocumento" 
+                        GridLines="None" AutoGenerateColumns="False" DataKeyNames="legajo" 
                         OnSelectedIndexChanged="gvClientes_SelectedIndexChanged" AllowPaging="True" 
                         PageSize="15" OnPageIndexChanging="gvClientes_PageIndexChanging"  Width="438px">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
-                            <asp:BoundField DataField="idTipoDocumento" HeaderText="idTipoDocumento" Visible="false" />
-                            <asp:BoundField DataField="nombreTipoDocumento" HeaderText="TipoDoc" />
-                            <asp:BoundField DataField="nroDocumento" HeaderText="NroDoc" />
+                            <asp:BoundField DataField="legajo" HeaderText="Legajo " />
                             <asp:BoundField DataField="apellido" HeaderText="Apellido       " />
                             <asp:BoundField DataField="nombre" HeaderText="Nombre       " />
                         </Columns>

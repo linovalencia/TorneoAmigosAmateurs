@@ -15,7 +15,8 @@ public partial class ABMArbitro : System.Web.UI.Page
     {
         if (!IsPostBack)
         {           
-           CargarComboTipoDocumnto();            
+           CargarComboTipoDocumnto();
+           cargarGrilla();
         } 
 
         
@@ -32,6 +33,13 @@ public partial class ABMArbitro : System.Web.UI.Page
         txtLegajo.Text="";
     
     }
+
+    public void cargarGrilla()
+    {
+        gvClientes.DataSource = ArbitroDAL.obtenerArbitro();
+        gvClientes.DataBind();
+
+    }
     private void CargarComboTipoDocumnto()
     {
         ddlTipoDocumento.DataSource = TipoDocumentoDAL.ObtenerTodo();
@@ -45,12 +53,15 @@ public partial class ABMArbitro : System.Web.UI.Page
 
     protected void btnNuevo_Click(object sender, EventArgs e)
     {
-
+        btnGrabar.Text = "Grabar";
+        limpiarCampos();
     }
     protected void btnGrabar_Click(object sender, EventArgs e)
     {
         if (Page.IsValid)
         {
+            if(btnGrabar.Text=="Grabar")
+            {
             ArbitroDTO ar = new ArbitroDTO();
             ar.idTipoDocumento = int.Parse(ddlTipoDocumento.SelectedValue);
             ar.numeroDocumento = int.Parse(txtNroDocumetno.Text);
@@ -61,21 +72,50 @@ public partial class ABMArbitro : System.Web.UI.Page
             // ar.disponibleParaFehca = ChkPrimeraVez.Checked;
             ArbitroDAL.InsertarArbitro(ar);
             limpiarCampos();
-            Response.Redirect("ABMArbitro.aspx");
+            cargarGrilla();
+            //Response.Redirect("ABMArbitro.aspx");
+            }
+            if(btnGrabar.Text=="Modificar")
+            {
+                ArbitroDTO ar = new ArbitroDTO();
+                ar.idTipoDocumento = int.Parse(ddlTipoDocumento.SelectedValue);
+                ar.numeroDocumento = int.Parse(txtNroDocumetno.Text);
+                ar.apellido = txtApellido.Text;
+                ar.nombre = txtNombre.Text;
+                ar.fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
+                ar.legajo = int.Parse(txtLegajo.Text);
+                // ar.disponibleParaFehca = ChkPrimeraVez.Checked;
+                ArbitroDAL.actualizarArbitro(ar);
+                limpiarCampos();
+                cargarGrilla();
+            }
         }
     }
 
 
     protected void btnEliminar_Click(object sender, EventArgs e)
     {
+        ArbitroDAL.eliminarArbitro(int.Parse(txtLegajo.Text));
+        limpiarCampos();
+        cargarGrilla();
 
     }
     protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        btnGrabar.Text = "Modificar";
+        ArbitroDTO a = new ArbitroDTO();
+        int legajo = int.Parse(gvClientes.Rows[gvClientes.SelectedIndex].Cells[1].Text);
+        a = ArbitroDAL.buscarArbitroPorLegajo(legajo);
+        ddlTipoDocumento.SelectedValue = a.idTipoDocumento.ToString();
+        txtNroDocumetno.Text = a.numeroDocumento.ToString();
+        txtApellido.Text = a.apellido;
+        txtNombre.Text = a.nombre;
+        txtFechaNacimiento.Text=a.fechaNacimiento.ToString();
+        txtLegajo.Text=a.legajo.ToString();
+        
     }
     protected void gvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
-    
+       
     }      
 }

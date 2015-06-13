@@ -16,7 +16,7 @@
 
                 <span id="reauth-email" class="reauth-email"></span> 
                                
-                <input type="email" id="inputEmail" class="form-control" placeholder="Dirección de Email" required="required" autofocus="autofocus" />
+                <input type="usuario" id="inputUsuario" class="form-control" placeholder="Nombre usuario" required="required" autofocus="autofocus" />
                 <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="required"/>
                 <div id="remember" class="checkbox">
                     <label>
