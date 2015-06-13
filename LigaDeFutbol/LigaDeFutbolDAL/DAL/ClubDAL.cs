@@ -171,6 +171,7 @@ namespace LigaDeFutbolDAL
                 throw new ApplicationException("Error al modificar el Club " + ex.ToString());
             }
         }
+
         public static int ComprobarNombreClubExiste(string nombreClub)
         {   
             int existe=0;
@@ -195,5 +196,27 @@ namespace LigaDeFutbolDAL
             }
             return existe;
         }
+
+        public static int obtenerIdClub()
+        {
+            int idClub=0;
+            string consultaSql = "SELECT MAX(idClub) as id FROM club";
+            SqlConnection cnn = new SqlConnection();
+
+            try
+            {
+                cnn.Open();
+
+                SqlCommand cmd = new SqlCommand(consultaSql, cnn);
+                idClub = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            return idClub;
+        }
+
+        //public static ClubDTO buscar
     }
 }

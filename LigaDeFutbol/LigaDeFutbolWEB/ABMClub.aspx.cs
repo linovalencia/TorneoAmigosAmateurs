@@ -17,17 +17,21 @@ public partial class ABMClub : System.Web.UI.Page
             BtnEliminar.Visible = false;
             BtnModificar.Visible = false;
             LblNombreYaUsado.Visible = false;
-          
+            TxtIdClubDatos.Enabled = false;
+
+            
             DdlCancha.DataSource = CanchaDAL.obtenerCancha();
             DdlCancha.DataTextField = "nombreCancha";
             DdlCancha.DataValueField = "idCancha";
             DdlCancha.DataBind();
+            DdlCancha.Items.Insert(0, new ListItem("Seleccione"));
         }
     }
 
     protected void BtnNuevoClub_Click(object sender, EventArgs e)
     {
         PanelDatosClub.Visible = true;
+        TxtIdClubDatos.Text = ClubDAL.obtenerIdClub().ToString();
     }
     protected void BtnGuardarClub_Click(object sender, EventArgs e)
     {
@@ -38,8 +42,16 @@ public partial class ABMClub : System.Web.UI.Page
             club.nombreClub = TxtNombreClub.Text;
             club.calle = TxtCalleDomicilioClub.Text;
             club.numeroCalle = int.Parse(TxtNumDomicilioClub.Text);
-            club.fechaFundacion = DateTime.Parse(TxtFechaFund.Text);
-            club.idCancha = int.Parse(DdlCancha.SelectedItem.Value);
+            if (TxtFechaFund.Text == "")
+            {
+                club.fechaFundacion = DateTime.Parse(null);
+            }
+            else
+            {
+                club.fechaFundacion = DateTime.Parse(TxtFechaFund.Text);
+            }
+           
+            club.idCancha = int.Parse(DdlCancha.SelectedValue);
             club.participoAntesEnLiga = ChkPrimeraVez.Checked;
            
             ClubDAL.insertarClub(club);
@@ -54,12 +66,17 @@ public partial class ABMClub : System.Web.UI.Page
     }
 
 
-    protected void BtnVerClubes_Click(object sender, EventArgs e)
+    protected void BtnBuscar_Click(object sender, EventArgs e)
     {
-        GridClubes.DataSource = ClubDAL.obtenerClubes();
-        GridClubes.DataBind();
-        BtnEliminar.Visible = true;
-        BtnModificar.Visible = true;
+        if (txtBuscar.Text == "")
+        {
+            GridClubes.DataSource = ClubDAL.obtenerClubes();
+            GridClubes.DataBind();
+            BtnEliminar.Visible = true;
+            BtnModificar.Visible = true;
+        }
+
+
     }
 
     protected void BtnCancelar_Click(object sender, EventArgs e)
@@ -117,6 +134,5 @@ public partial class ABMClub : System.Web.UI.Page
         {
             LblNombreYaUsado.Visible = false;
         }
-        //sdsdsdsdsd
     }
 }

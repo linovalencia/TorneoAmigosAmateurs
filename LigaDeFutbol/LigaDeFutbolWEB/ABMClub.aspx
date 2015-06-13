@@ -6,7 +6,8 @@
         &nbsp;<asp:Label ID="LblAdminClub" runat="server" Font-Size="X-Large" Text="Administrar Clubes"></asp:Label>
         <br />
         <br />
-        &nbsp;&nbsp;&nbsp;<asp:Button ID="BtnVerClubes" runat="server" Text="Ver clubes inscriptos" OnClick="BtnVerClubes_Click" />
+        &nbsp;<asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;<asp:Button ID="BtnBuscar" runat="server" Text="Buscar clubes" OnClick="BtnBuscar_Click" />
 &nbsp;<asp:Button ID="BtnNuevoClub" runat="server" Text="Nuevo club" OnClick="BtnNuevoClub_Click" />
         &nbsp;<br />
         <br />
@@ -42,7 +43,7 @@
             &nbsp; Fecha de fundación:<asp:TextBox ID="TxtFechaFund" runat="server"></asp:TextBox>
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cancha:<asp:DropDownList ID="DdlCancha" runat="server" ValidationGroup="Guardar"  Height="16px" Width="123px">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cancha:<asp:DropDownList ID="DdlCancha" runat="server" ValidationGroup="Guardar"  Height="22px" Width="128px">
                     <asp:ListItem Value="0">Select</asp:ListItem>
                     <asp:ListItem Value="1">Selected</asp:ListItem>
                 </asp:DropDownList>
