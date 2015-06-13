@@ -21,7 +21,7 @@ namespace LigaDeFutbolDAL
             {
                 cnn.Open();
                 SqlCommand cmd = new SqlCommand(consultaSql, cnn);
-                cmd.Parameters.AddWithValue(@"nom", nom);
+                cmd.Parameters.AddWithValue(@"nomb", nom);
                 cmd.Parameters.AddWithValue(@"pass", pass);
                 SqlDataReader dr = cmd.ExecuteReader();
 
