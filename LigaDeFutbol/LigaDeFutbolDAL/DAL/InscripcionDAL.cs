@@ -15,7 +15,7 @@ namespace LigaDeFutbolDAL.DAL
         {
             List<InscripcionDTO> inscripciones=new List<InscripcionDTO>();
             string consultaSql = "SELECT * FROM inscripcion";
-            SqlConnection cnn = new SqlConnection();
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
             try
             {
@@ -47,18 +47,39 @@ namespace LigaDeFutbolDAL.DAL
         {
             string consultaSql = @"INSERT INTO inscripcion (idClub, idCampeonato, numeroInscripcion, fechaInscripcion, idDetalleInscripcion)
                                   VALUES (@idCl, @idCa, @num, @fecha, @idDe)";
-            SqlConnection cnn = new SqlConnection();
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
             try
             {
                 cnn.Open();
                 SqlCommand cmd = new SqlCommand(consultaSql, cnn);
 
-                cmd.Parameters.Add("@idCl", i.idClub);
-                cmd.Parameters.Add("@idCa", i.idCampeonato);
-                cmd.Parameters.Add("@num", i.numeroInscripcion);
-                cmd.Parameters.Add("@fecha", i.fechaInscripcion);
-                cmd.Parameters.Add("@idDe", i.idDetalleInscripcion);
+                cmd.Parameters.AddWithValue("@idCl", i.idClub);
+                cmd.Parameters.AddWithValue("@idCa", i.idCampeonato);
+                cmd.Parameters.AddWithValue("@num", i.numeroInscripcion);
+                cmd.Parameters.AddWithValue("@fecha", i.fechaInscripcion);
+                cmd.Parameters.AddWithValue("@idDe", i.idDetalleInscripcion);
+
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+        public static void eliminarInscripcion(int numeroInscripcion)
+        {
+            string consultaSql = "DELETE FROM inscripcion WHERE numeroInscripcion=@num";
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(consultaSql, cnn);
+
+                cmd.Parameters.AddWithValue("@num", numeroInscripcion);
 
                 cmd.ExecuteNonQuery();
                 cnn.Close();
