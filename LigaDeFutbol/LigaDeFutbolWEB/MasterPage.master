@@ -23,7 +23,8 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+   <%-- <form id="Form1" class="form-horizontal" runat="server" role="form">--%>
+  <%--  <form id="form1" runat="server">--%>
         <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container">
               <div class="navbar-header">
@@ -46,7 +47,7 @@
                   
                   <li><a href="ABMArbitro.aspx">Arbitro</a></li>
                   <li><a href="ABMCancha.aspx">Cancha</a></li>
-                  <li><a href="ABMClub.aspx">Club</a></li>
+                  <li><a href="ABMClub1.aspx">Club</a></li>
               </ul>
                   
                   
@@ -69,19 +70,20 @@
           </div>
         </nav>
 
+   <%-- <div class="container-fluid">--%>
+       <%-- <div class="content">--%>
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
 
-        <br />
-        
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-       
-        </asp:ContentPlaceHolder>
-    </form>
+        <%--</div>--%>
+    
+         <footer class="footer" style=" margin-top: -150px; clear:both; padding-top:20px;">
+            
+             <p class="text-muted">© Torneo de Amigos Amateurs 2015</p>
+         </footer> 
+    <%--</div>--%>
 
-     <footer class="footer">
-      <div class="container">
-        <p class="text-muted">© Torneo de Amigos Amateurs 2015</p>
-      </div>
-    </footer>    
+
+          
   
 
     <!-- Bootstrap core JavaScript
@@ -89,5 +91,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-1.11.1.js"></script>
+<%-- </form>--%>
 </body>
 </html>

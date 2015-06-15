@@ -5,42 +5,124 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using LigaDeFutbolDAL;
-using System.Data;
-using System.Data.SqlClient;
 using LigaDeFutbolDTO;
 
 public partial class ABMArbitro : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {           
-           CargarComboTipoDocumnto();
-           cargarGrilla();
-        } 
+        if (!Page.IsPostBack)
+        {
+            CargarComboTipoDocumento();
+            CargarGrilla();
+        }
+    }
+    protected void btnNuevo_Click(object sender, EventArgs e)
+    {
+        lblMensajeExito.Text = "";
+        lblMensajeError.Text = "";
+        limpiarCampos();
+        ViewState["idArbitro"] = null;
+    }
+    protected void btnGrabar_Click(object sender, EventArgs e)
+    {
 
-        
+        ArbitroDTO ar = new ArbitroDTO();
+
+        ar.idTipoDocumento = int.Parse(ddlTipoDocumento.SelectedValue);
+        ar.numeroDocumento = int.Parse(txtNroDocumetno.Text);
+        ar.apellido = txtApellido.Text;
+        ar.nombre = txtNombre.Text;
+        ar.fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
+
+        if (rbtSi.Checked == true)
+            ar.disponibleParaFecha = Boolean.Parse("true");
+        else
+            ar.disponibleParaFecha = Boolean.Parse("false");
+
+        if (ViewState["idArbitro"] == null)
+        {
+            ArbitroDAL.InsertarArbitro(ar);
+
+            lblMensajeExito.Text = "Arbitro grabado con éxito, ID asignado:" + ArbitroDAL.obtenerIdArbitro().ToString();
+        }
+        else
+        {
+            ar.idArbitro = (int)ViewState["idArbitro"];
+            ArbitroDAL.actualizarArbitro(ar);
+            lblMensajeExito.Text = "Arbitro actualizado con éxito";
+
+        }
+        limpiarCampos();
+        CargarGrilla();
+        ViewState["idArbitro"] = null;
+
+        Response.Redirect("ABMArbitro.aspx");
+
+
 
     }
+    protected void btnEliminar_Click(object sender, EventArgs e)
+    {
+        String id;
+        id = ArbitroDAL.obtenerIdArbitro().ToString();
 
+        ArbitroDAL.eliminarArbitro(int.Parse(id));
+        Response.Redirect("ABMArbitro.aspx");
+    }
+    protected void gvArbitros_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int i = int.Parse(gvArbitros.SelectedDataKey.Value.ToString());
+        ArbitroDTO a = new ArbitroDTO();
+
+        a = ArbitroDAL.buscarArbitroPorId(i);
+
+        ddlTipoDocumento.SelectedValue = a.idTipoDocumento.ToString();
+        txtNroDocumetno.Text = a.numeroDocumento.ToString();
+        txtApellido.Text = a.apellido;
+        txtNombre.Text = a.nombre;
+        txtFechaNacimiento.Text = a.fechaNacimiento.ToShortDateString();
+        if (a.disponibleParaFecha == Boolean.Parse("true"))
+        {
+            rbtSi.Checked = true;
+            rbtNo.Checked = false;
+        }
+        else
+        {
+            rbtNo.Checked = true;
+            rbtSi.Checked = false;
+        }
+
+        ViewState["idArbitro"] = i;
+        lblMensajeError.Text = "";
+        lblMensajeExito.Text = "";
+
+    }
+    protected void gvArbitros_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvArbitros.PageIndex = e.NewPageIndex;
+        CargarGrilla();
+
+    }
     public void limpiarCampos()
     {
-        ddlTipoDocumento.SelectedIndex=0;
-        txtNroDocumetno.Text="";
-        txtApellido.Text="";
-        txtNombre.Text="";
-        txtFechaNacimiento.Text="";
-        txtLegajo.Text="";
-    
-    }
+        ddlTipoDocumento.SelectedIndex = 0;
+        txtNroDocumetno.Text = "";
+        txtApellido.Text = "";
+        txtNombre.Text = "";
+        txtFechaNacimiento.Text = "";
 
-    public void cargarGrilla()
+
+
+    }
+    public void CargarGrilla()
     {
-        gvClientes.DataSource = ArbitroDAL.obtenerArbitro();
-        gvClientes.DataBind();
+        gvArbitros.DataSource = ArbitroDAL.obtenerArbitro();
+        gvArbitros.DataKeyNames = new string[] { "idArbitro" };
+        gvArbitros.DataBind();
 
     }
-    private void CargarComboTipoDocumnto()
+    private void CargarComboTipoDocumento()
     {
         ddlTipoDocumento.DataSource = TipoDocumentoDAL.ObtenerTodo();
         ddlTipoDocumento.DataTextField = "descripcion";
@@ -49,73 +131,4 @@ public partial class ABMArbitro : System.Web.UI.Page
         ddlTipoDocumento.TabIndex = 0;
 
     }
-
-
-    protected void btnNuevo_Click(object sender, EventArgs e)
-    {
-        btnGrabar.Text = "Grabar";
-        limpiarCampos();
     }
-    protected void btnGrabar_Click(object sender, EventArgs e)
-    {
-        if (Page.IsValid)
-        {
-            if(btnGrabar.Text=="Grabar")
-            {
-            ArbitroDTO ar = new ArbitroDTO();
-            ar.idTipoDocumento = int.Parse(ddlTipoDocumento.SelectedValue);
-            ar.numeroDocumento = int.Parse(txtNroDocumetno.Text);
-            ar.apellido = txtApellido.Text;
-            ar.nombre = txtNombre.Text;
-            ar.fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
-            ar.legajo = int.Parse(txtLegajo.Text);
-            // ar.disponibleParaFehca = ChkPrimeraVez.Checked;
-            ArbitroDAL.InsertarArbitro(ar);
-            limpiarCampos();
-            cargarGrilla();
-            //Response.Redirect("ABMArbitro.aspx");
-            }
-            if(btnGrabar.Text=="Modificar")
-            {
-                ArbitroDTO ar = new ArbitroDTO();
-                ar.idTipoDocumento = int.Parse(ddlTipoDocumento.SelectedValue);
-                ar.numeroDocumento = int.Parse(txtNroDocumetno.Text);
-                ar.apellido = txtApellido.Text;
-                ar.nombre = txtNombre.Text;
-                ar.fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
-                ar.legajo = int.Parse(txtLegajo.Text);
-                // ar.disponibleParaFehca = ChkPrimeraVez.Checked;
-                ArbitroDAL.actualizarArbitro(ar);
-                limpiarCampos();
-                cargarGrilla();
-            }
-        }
-    }
-
-
-    protected void btnEliminar_Click(object sender, EventArgs e)
-    {
-        ArbitroDAL.eliminarArbitro(int.Parse(txtLegajo.Text));
-        limpiarCampos();
-        cargarGrilla();
-
-    }
-    protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        btnGrabar.Text = "Modificar";
-        ArbitroDTO a = new ArbitroDTO();
-        int legajo = int.Parse(gvClientes.Rows[gvClientes.SelectedIndex].Cells[1].Text);
-        a = ArbitroDAL.buscarArbitroPorLegajo(legajo);
-        ddlTipoDocumento.SelectedValue = a.idTipoDocumento.ToString();
-        txtNroDocumetno.Text = a.numeroDocumento.ToString();
-        txtApellido.Text = a.apellido;
-        txtNombre.Text = a.nombre;
-        txtFechaNacimiento.Text=a.fechaNacimiento.ToString();
-        txtLegajo.Text=a.legajo.ToString();
-        
-    }
-    protected void gvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
-    {
-       
-    }      
-}

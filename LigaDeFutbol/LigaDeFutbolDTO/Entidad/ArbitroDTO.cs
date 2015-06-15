@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace LigaDeFutbolDTO
 {
-    public class ArbitroDTO: JugadorDTO
+    public class ArbitroDTO
     {
-        public int legajo { get; set; }
-
-        public ArbitroDTO()
-        {
-            legajo = int_NullValue;
-            IsNew = true;
-        }
+        public int idArbitro { get; set; }
+        public int idTipoDocumento { get; set; }
+        public int numeroDocumento { get; set; }
+        public string apellido { get; set; }
+        public string nombre { get; set; }
+        public DateTime fechaNacimiento { get; set; }
+        public bool disponibleParaFecha { get; set; }
+        
+        
 
     }
 }

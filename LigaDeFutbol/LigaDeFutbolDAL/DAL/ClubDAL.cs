@@ -72,6 +72,7 @@ namespace LigaDeFutbolDAL
                     club.participoAntesEnLiga = bool.Parse(dr["participoAntesEnLiga"].ToString());
                     club.idCancha = int.Parse(dr["idCancha"].ToString());
                 }
+                cnn.Close();
 
             }
             catch (Exception ex)
@@ -201,7 +202,7 @@ namespace LigaDeFutbolDAL
         {
             int idClub=0;
             string consultaSql = "SELECT MAX(idClub) as id FROM club";
-            SqlConnection cnn = new SqlConnection();
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
             try
             {

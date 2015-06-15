@@ -7,104 +7,118 @@ using System.Web.UI.WebControls;
 using LigaDeFutbolDTO;
 using LigaDeFutbolDAL;
 
-
-
-
 public partial class ABMCancha : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.IsPostBack)
+        {
 
-        //cargarGrilla();
-        TxtIdCancha.Enabled = false;
-        
+            CargarGrilla();
+        }
     }
-  
     protected void btnNuevo_Click(object sender, EventArgs e)
     {
-        if (btnNuevo.Text == "Nuevo")
-        {
-            int id = Convert.ToInt32(CanchaDAL.ObtenerIDCancha());
-            TxtIdCancha.Text = id.ToString();
-        }
-        if (btnNuevo.Text == "Modificar")
-        { 
-        
-        
-        }
+        lblMensajeExito.Text = "";
+        lblMensajeError.Text = "";
+        limpiarCampos();
+        ViewState["idArbitro"] = null;
     }
-
-   
     protected void btnGrabar_Click(object sender, EventArgs e)
     {
-        if (Page.IsValid)
+
+        CanchaDTO c = new CanchaDTO();
+
+        c.calle = txtCalle.Text;
+        c.numeroCalle = int.Parse(txtNroCalle.Text.Trim());
+        c.nombreCancha = txtNombre.Text.Trim();
+        c.fechaInaguracion = DateTime.Parse(txtFechaIn.Text);
+
+        if (rbtSi.Checked == true)
+            c.habilitada = Boolean.Parse("true");
+        else
+            c.habilitada = Boolean.Parse("false");
+
+        if (ViewState["idCancha"] == null)
         {
-            CanchaDTO c = new CanchaDTO();
-
-            c.calle = txtCalle.Text.Trim();
-            c.numeroCalle = int.Parse(txtNroCalle.Text.Trim());
-            c.nombreCancha = txtNombre.Text.Trim();
-            c.fechaInaguracion = DateTime.Parse(txtFechaIn.Text);
-            //if (ChkHabilitada.Checked == true)
-            //    c.habilitada = Boolean.Parse("true");
-            //else
-            //    c.habilitada = Boolean.Parse("false");
-
-
-
             CanchaDAL.insertarCancha(c);
-            limpiarCampos();
-            //cargarGrilla();
+
+            lblMensajeExito.Text = "Cancha grabada con éxito, ID asignado:" + CanchaDAL.ObtenerIDCancha().ToString();
         }
+        else
+        {
+            c.idCancha = (int)ViewState["idCancha"];
+            CanchaDAL.actualizarCancha(c);
+            lblMensajeExito.Text = "Cancha actualizada con éxito";
+
+        }
+
+        limpiarCampos();
+        CargarGrilla();
+        ViewState["idCancha"] = null;
+
+        Response.Redirect("ABMCancha.aspx");
     }
-
-
     protected void btnEliminar_Click(object sender, EventArgs e)
     {
-        CanchaDAL.eliminarCancha(int.Parse(TxtIdCancha.Text));
-        limpiarCampos();
-        //cargarGrilla();
-        
-    }
-    // protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
-    //protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    CanchaDTO cancha = new CanchaDTO();
+        String id;
+        id = CanchaDAL.ObtenerIDCancha().ToString();
 
-    //    int id = int.Parse(gvCancha.Rows[gvCancha.SelectedIndex].Cells[2].Text);
-    //    cancha=CanchaDAL.buscarClubPorId(id);
-    //    TxtIdCancha.Text = cancha.idCancha.ToString();
-    //    txtNombre.Text = cancha.nombreCancha;
-    //    txtCalle.Text = cancha.calle;
-    //    txtNroCalle.Text = cancha.numeroCalle.ToString();
-    //    txtFechaIn.Text = cancha.fechaInaguracion.ToString();
-    //}
+        CanchaDAL.eliminarCancha(int.Parse(id));
+        Response.Redirect("ABMCancha.aspx");
+    }
+    protected void gvCanchas_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int i = int.Parse(gvCanchas.SelectedDataKey.Value.ToString());
+        CanchaDTO c = new CanchaDTO();
+
+        c = CanchaDAL.buscarCanchaPorId(i);
+
+        txtNombre.Text = c.nombreCancha;
+        txtCalle.Text = c.calle;
+        txtNroCalle.Text = c.numeroCalle.ToString();
+        txtFechaIn.Text = c.fechaInaguracion.ToShortDateString();
+        if (c.habilitada == Boolean.Parse("true"))
+        {
+            rbtSi.Checked = true;
+            rbtNo.Checked = false;
+        }
+        else
+        {
+            rbtNo.Checked = true;
+            rbtSi.Checked = false;
+        }
+        ViewState["idCancha"] = i;
+        lblMensajeError.Text = "";
+        lblMensajeExito.Text = "";
+    }
+    protected void gvCanchas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvCanchas.PageIndex = e.NewPageIndex;
+        CargarGrilla();
+
+    }
     public void limpiarCampos()
     {
-        txtNombre.Text = "";
         txtCalle.Text = "";
-        txtNroCalle.Text = "";
         txtFechaIn.Text = "";
+        txtNombre.Text = "";
+        txtNroCalle.Text = "";
     }
+    public void CargarGrilla()
+    {
 
-    //public void cargarGrilla()
-    //{
-    //    gvCancha.DataSource = CanchaDAL.obtenerCancha();
-    //    gvCancha.DataBind();
-    //}
-    public void cargarGrilla()
-    {
-        //gvCancha.DataSource = CanchaDAL.obtenerCancha();
-        //gvCancha.DataBind();
+        gvCanchas.DataSource = CanchaDAL.obtenerCancha();
+        gvCanchas.DataKeyNames = new string[] { "idCancha" };
+        gvCanchas.DataBind();
+
     }
-    protected void txtNombre_TextChanged(object sender, EventArgs e)
+    /*protected void txtNombre_TextChanged(object sender, EventArgs e)
     {
-       
-        
-            if (CanchaDAL.ExisteNombre(txtNombre.Text) == 1)
-            {
-                existeNombre.ErrorMessage.Trim();
-            }
-        
-    }
+        if (CanchaDAL.ExisteNombre(txtNombre.Text) == 1)
+        {
+            existeNombre.ErrorMessage.Trim();
+        }
+    }*/
 }
+
