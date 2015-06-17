@@ -8,6 +8,7 @@ namespace LigaDeFutbolDTO
 {
     public class JugadorDTO:DTOBase
     {
+        public int idJugador { get; set; }
         public int idTipoDocumento { get; set; }
         public int numeroDocumento { get; set; }
         public string nombre { get; set; }

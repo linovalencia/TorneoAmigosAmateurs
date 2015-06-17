@@ -19,8 +19,7 @@ namespace LigaDeFutbolDAL
             List<ArbitroDTO> arbitros = new List<ArbitroDTO>();
             string consultaSQL = "SELECT * FROM Arbitro";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
-
-
+            
             try
             {
                 cnn.Open();

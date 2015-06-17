@@ -40,7 +40,7 @@
         <div class="col-md-4">
           <h2>Club</h2>
           <p>En esta seccion se podrá realizar el alta, baja, modificación y consulta de los Clubes</p>
-          <p><a class="btn btn-default" href="ABMClub.aspx" role="button">Cargar Club &raquo;</a></p>
+          <p><a class="btn btn-default" href="ABMClub1.aspx" role="button">Cargar Club &raquo;</a></p>
         </div>
       </div>     
     </div> <!-- /container -->

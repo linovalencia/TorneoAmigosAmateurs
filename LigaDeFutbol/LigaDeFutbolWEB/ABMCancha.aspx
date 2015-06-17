@@ -13,12 +13,12 @@
                             <h4>Cancha</h4>
                         </div>
                         <div class="panel-body">
-                       
+
                             <div class="form-group">
                                 <label for="inputCancha" class="col-md-4 control-label">
                                     Nombre</label>
                                 <div class="col-md-8">
-                                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server" ></asp:TextBox>
+                                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
                                     <asp:RegularExpressionValidator ID="validacionNombre" runat="server" ErrorMessage="Ingrese un nombre valido"
                                         ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z ]*$" CssClass="alert-danger"
                                         Display="Dynamic"></asp:RegularExpressionValidator>
@@ -61,7 +61,7 @@
                                     </div>
                             </div>
 
-                        
+
 
                             <div class="col-md-12 ">
                                 <div class="panel panel-info">
@@ -83,24 +83,17 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="form-group">                              
-                                  
+                            <div class="form-group">
                                 <div class="btn-group-lg text-center">
                                     <asp:Button ID="btnNuevo" runat="server" class="btn btn-info" Text="Nuevo" OnClick="btnNuevo_Click"
                                         CausesValidation="False" />
                                     <asp:Button ID="btnGrabar" runat="server" class="btn btn-success" Text="Grabar" OnClick="btnGrabar_Click" />
                                     <asp:Button ID="btnEliminar" runat="server" class="btn btn-danger" Text="Eliminar"
                                         OnClick="btnEliminar_Click" CausesValidation="False" OnClientClick="return window.confirm('¿Desea eliminar la Cancha?');" />
-                                   
                                 </div>
-                                 
                             </div>
-                              
                         </div>
-                          
                     </div>
-
                     <div class="btn-group-lg text-center">
                         <h3>
                             <asp:Label ID="lblMensajeExito" class="label label-success" runat="server"></asp:Label></h3>
@@ -127,7 +120,7 @@
                             </asp:GridView>
                         </div>
                     </div>
-                </div>            
+                </div>
             </div>
         </div>
     </form>

@@ -1,0 +1,7 @@
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.dll
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.pdb
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.dll
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.pdb
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.csprojResolveAssemblyReference.cache
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.dll
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.pdb

@@ -88,7 +88,6 @@ public partial class ABMClub1 : System.Web.UI.Page
         if (ViewState["idClub"] == null)
         {
             ClubDAL.insertarClub(club);
-
             lblMensajeExito.Text = "Club grabado con éxito, ID asignado:" + ClubDAL.obtenerIdClub().ToString();
         }
         else
@@ -96,8 +95,8 @@ public partial class ABMClub1 : System.Web.UI.Page
             club.idClub = (int)ViewState["idClub"];
             ClubDAL.actualizarClub(club);
             lblMensajeExito.Text = "Producto actualizado con éxito";
-
         }
+
         blanquearCampos();
         CargarGrilla();
         ViewState["idClub"] = null;
