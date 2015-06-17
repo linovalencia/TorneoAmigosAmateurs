@@ -44,6 +44,8 @@
     <Compile Include="Entidad\CanchaDTO.cs" />
     <Compile Include="Entidad\ClubDTO.cs" />
     <Compile Include="Entidad\DomicilioDTO.cs" />
+    <Compile Include="Entidad\EstadoFecha.cs" />
+    <Compile Include="Entidad\FixtureDTO.cs" />
     <Compile Include="Entidad\InscripcionDTO.cs" />
     <Compile Include="Entidad\JugadorDTO.cs" />
     <Compile Include="Entidad\PartidoDTO.cs" />

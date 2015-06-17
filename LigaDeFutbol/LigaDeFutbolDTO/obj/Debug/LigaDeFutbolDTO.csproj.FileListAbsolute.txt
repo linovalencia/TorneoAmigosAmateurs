@@ -3,3 +3,8 @@ D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.csprojResolveAssemblyReference.cache
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.dll
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\ligaDeFutbol\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.pdb
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeFutbolDTO.dll
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeFutbolDTO.pdb
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.csprojResolveAssemblyReference.cache
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.dll
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.pdb
