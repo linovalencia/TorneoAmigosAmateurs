@@ -46,6 +46,7 @@
     <Compile Include="DAL\ClubDAL.cs" />
     <Compile Include="DAL\FixtureDAL.cs" />
     <Compile Include="DAL\InscripcionDAL.cs" />
+    <Compile Include="DAL\JugadorDAL.cs" />
     <Compile Include="DAL\TipoDocumentoDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,6 +11,6 @@ namespace LigaDeFutbolDAL
 {
     public class FixtureDAL
     {
-        public static void insertar(,)
+        //public static void insertar(,)
     }
 }
