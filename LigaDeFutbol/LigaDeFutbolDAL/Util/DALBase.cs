@@ -17,7 +17,7 @@ namespace LigaDeFutbolDAL
         public static string StringConexion
         {
 
-            get { return ConfigurationManager.ConnectionStrings["LigaDeFutbolConnectionString2"].ConnectionString; }
+            get { return ConfigurationManager.ConnectionStrings["LigaDeFutbolConnectionString"].ConnectionString; }
           
 
         }

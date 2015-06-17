@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using LigaDeFutbolDTO;
 using System.Data;
 using System.Data.SqlClient;
-using LigaDeFutbolDTO;
 using LigaDeFutbolDAL;
 
 
