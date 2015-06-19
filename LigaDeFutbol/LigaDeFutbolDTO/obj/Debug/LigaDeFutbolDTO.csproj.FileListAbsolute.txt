@@ -9,6 +9,5 @@ E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeF
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.pdb
 D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeFutbolDTO.dll
 D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeFutbolDTO.pdb
-D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.csprojResolveAssemblyReference.cache
 D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.dll
 D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.pdb
