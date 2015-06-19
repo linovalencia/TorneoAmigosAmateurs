@@ -11,20 +11,20 @@
                             <h4>Fixture</h4>
                         </div>
                         <div class="panel-body">
-                            <div class="col-md-12">
+                            <%--<div class="col-md-12">--%>
                                 <div class="col-md-6">
 
                                     <div class="form-group">
                                         <label for="transaccionFixture" class="col-md-3 control-label">
                                             Torneo</label><div class="col-md-9">
                                             <asp:DropDownList ID="ddlTorenos" CssClass="form-control" runat="server" AutoPostBack="True"
-                                                AppendDataBoundItems="true" OnSelectedIndexChanged="ddlTorneos_SelectedIndexChanged"
+                                                AppendDataBoundItems="true" 
                                                 Display="Dynamic">
                                                 <asp:ListItem Value="0">Seleccione..</asp:ListItem>
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlTorneos"
+                                         <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlTorneos"
                                                 ErrorMessage="seleccione un torneo" InitialValue="0" CssClass="alert-danger"
-                                                Display="Dynamic" ValidationGroup="inscripcion"></asp:RequiredFieldValidator>
+                                                Display="Dynamic" ValidationGroup="inscripcion"></asp:RequiredFieldValidator>--%>
                                         </div>
                                     </div>
 
@@ -55,7 +55,7 @@
                                             Clubes inscriptos
                                         </label>
                                     <asp:GridView ID="gvEquipos" runat="server" CssClass="table table-hover table-striped"
-                                        GridLines="None" AutoGenerateColumns="False" OnSelectedIndexChanged="gvEquipos_SelectedIndexChanged">
+                                        GridLines="None" AutoGenerateColumns="False">
                                         <Columns>
                                             <asp:BoundField DataField="idClub" HeaderText="ID       " />
                                             <asp:BoundField DataField="nombreClub" HeaderText="Nombre       " />
@@ -72,8 +72,7 @@
                                                 </fieldset>
                                             </div>
                                     </div>
-                            </div>
-                            </div>
+                            <%--</div>--%>
                             <div class="btn-group-lg text-center">
                                 <h3>
                                     <asp:Label ID="lblMensajeExito" class="label label-success" runat="server"></asp:Label></h3>
@@ -85,25 +84,52 @@
 
                 <div class="col-md-6">
                     <div class="panel panel-primary">
+                         <div class="form-group">
+                                        <label for="transaccionFixture" class="col-md-3 control-label">
+                                            Fecha Nº</label>
+                                        <div class="col-md-9">
+                                                <fieldset disabled>
+                                                    <asp:TextBox ID="txtFechaNum" CssClass="form-control" runat="server"></asp:TextBox>
+                                                </fieldset>
+                                            </div>
+                                    </div>
+                         <div class="form-group">
+                                        <label for="transaccionFixture" class="col-md-3 control-label">
+                                            Comienza</label>
+                                        <div class="col-md-9">
+                                                <fieldset enabled>
+                                                    <asp:TextBox ID="txtFechaComienzo" CssClass="form-control" runat="server"></asp:TextBox>
+                                                </fieldset>
+                                            </div>
+                                    </div>
                         <div class="panel-heading">
                             <h4>Partidos</h4>
                         </div>
                         <div class="panel-body">
-                            <asp:GridView ID="gvArbitros" runat="server" CssClass="table table-hover table-striped"
-                                GridLines="None" AutoGenerateColumns="False" DataKeyNames="legajo"
-                                OnSelectedIndexChanged="gvArbitros_SelectedIndexChanged" AllowPaging="True"
-                                PageSize="15" OnPageIndexChanging="gvArbitros_PageIndexChanging" Width="438px">
+                            <asp:GridView ID="gvPartidos" runat="server" CssClass="table table-hover table-striped"
+                                GridLines="None" AutoGenerateColumns="False" AllowPaging="True"
+                                PageSize="15" Width="438px">
                                 <Columns>
-                                    <asp:CommandField ShowSelectButton="True" />
-                                    <asp:BoundField DataField="idArbitro" HeaderText="Id" />
-                                    <asp:BoundField DataField="apellido" HeaderText="Apellido       " />
-                                    <asp:BoundField DataField="nombre" HeaderText="Nombre       " />
+                                    <asp:BoundField HeaderText="Local" />
+                                    <asp:BoundField HeaderText="Visitante" />
+                                    <asp:TemplateField HeaderText="Arbitro">
+                                        <ItemTemplate>
+                                            <asp:DropDownList ID="DdlArbitro" runat="server">
+                                            </asp:DropDownList>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Cancha">
+                                        <ItemTemplate>
+                                            <asp:DropDownList ID="DdlCancha" runat="server">
+                                            </asp:DropDownList>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField HeaderText="Fecha" ApplyFormatInEditMode="True" />
                                 </Columns>
                             </asp:GridView>
                         </div>
                     </div>
                 </div>                
             </div>
-        </div>
     </form>
 </asp:Content>
