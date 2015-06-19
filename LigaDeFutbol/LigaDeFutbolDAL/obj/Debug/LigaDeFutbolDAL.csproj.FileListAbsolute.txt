@@ -12,3 +12,10 @@ E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeF
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.csprojResolveAssemblyReference.cache
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.dll
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.pdb
+D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.csprojResolveAssemblyReference.cache
+D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.dll
+D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.pdb
+D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.dll
+D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.pdb
+D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.dll
+D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.pdb
