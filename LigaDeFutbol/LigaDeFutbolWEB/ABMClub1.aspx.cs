@@ -94,7 +94,7 @@ public partial class ABMClub1 : System.Web.UI.Page
         {
             club.idClub = (int)ViewState["idClub"];
             ClubDAL.actualizarClub(club);
-            lblMensajeExito.Text = "Producto actualizado con éxito";
+            lblMensajeExito.Text = "Club actualizado con éxito";
         }
 
         blanquearCampos();

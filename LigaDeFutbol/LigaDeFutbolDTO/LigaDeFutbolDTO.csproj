@@ -43,6 +43,7 @@
     <Compile Include="Entidad\CampeonatoDTO.cs" />
     <Compile Include="Entidad\CanchaDTO.cs" />
     <Compile Include="Entidad\ClubDTO.cs" />
+    <Compile Include="Entidad\DetalleInscripcionDTO.cs" />
     <Compile Include="Entidad\DomicilioDTO.cs" />
     <Compile Include="Entidad\EstadoFecha.cs" />
     <Compile Include="Entidad\FechaCampeonato.cs" />

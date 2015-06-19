@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h4>Cancha</h4>
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="btn-group-lg text-center">
+                                <div class="btn-group-md text-center">
                                     <asp:Button ID="btnNuevo" runat="server" class="btn btn-info" Text="Nuevo" OnClick="btnNuevo_Click"
                                         CausesValidation="False" />
                                     <asp:Button ID="btnGrabar" runat="server" class="btn btn-success" Text="Grabar" OnClick="btnGrabar_Click" />
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="btn-group-lg text-center">
+                    <div class="btn-group-md text-center">
                         <h3>
                             <asp:Label ID="lblMensajeExito" class="label label-success" runat="server"></asp:Label></h3>
                         <h3>

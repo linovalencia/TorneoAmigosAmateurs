@@ -25,7 +25,7 @@ namespace LigaDeFutbolDAL.DAL
             cmd.Parameters.AddWithValue("@fechaNac", jugador.fechaNacimiento);
             
 
-            jugador.idInscripcion = Convert.ToInt32(cmd.ExecuteScalar());
+            //jugador.idInscripcion = Convert.ToInt32(cmd.ExecuteScalar());
         }
     }
 }

@@ -43,10 +43,10 @@ namespace LigaDeFutbolDAL.DAL
             return inscripciones;
         }
 
-        public static void insertarInscripcion(InscripcionDTO i)
+        public static void insertarInscripcion(InscripcionDTO i, List<DetalleInscripcionDTO> detalles)
         {
-            string consultaSql = @"INSERT INTO inscripcion (idClub, idCampeonato, numeroInscripcion, fechaInscripcion, idDetalleInscripcion)
-                                  VALUES (@idCl, @idCa, @num, @fecha, @idDe)";
+            string consultaSql = @"INSERT INTO inscripcion (idClub, idCampeonato, numeroInscripcion, fechaInscripcion)
+                                  VALUES (@idCl, @idCa, @num, @fecha)";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
             try
