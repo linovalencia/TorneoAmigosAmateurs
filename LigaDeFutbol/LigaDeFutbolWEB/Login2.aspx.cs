@@ -25,14 +25,21 @@ public partial class Login2 : System.Web.UI.Page
         Session.Add("user",usuario);
         Session.Add("pass",password);
 
-        if(UsuarioDAL.validarUsuario(usuario,password)==true)
+        if (UsuarioDAL.validarUsuario(usuario, password) == true)
         {
-            rol=UsuarioDAL.buscarRol(usuario,password);
+            rol = UsuarioDAL.buscarRol(usuario, password);
         }
-        
-        else 
+        else
         {
-            rol="anonimo";
+            rol = "anonimo";
+        }
+
+        if (UsuarioDAL.validarUsuario(usuario, password) == false)
+        {
+         
+        
+            e.Authenticated=false;
+        
         }
 
         FormsAuthenticationTicket autTicket = new FormsAuthenticationTicket(1, Login1.UserName.ToString(), DateTime.Now, DateTime.Now.AddMinutes(60), false, rol);
@@ -41,5 +48,6 @@ public partial class Login2 : System.Web.UI.Page
             
         Response.Redirect(FormsAuthentication.GetRedirectUrl(Login1.UserName.ToString(),false));
 
+        
     }
 }

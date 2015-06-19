@@ -23,7 +23,7 @@
 
                 <span id="reauth-email" class="reauth-email"></span> 
                                
-                <input type="usuario" id="inputUsuario" class="form-control" placeholder="Nombre usuario" required="required" autofocus="autofocus" />
+                <input type="email" id="inputUsuario" class="form-control" placeholder="Nombre usuario" required="required" autofocus="autofocus" />
                 <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="required"/>
                 <div id="remember" class="checkbox">
                     <label>
