@@ -43,7 +43,7 @@ namespace LigaDeFutbolDAL
             {
                 if (cn.State == ConnectionState.Open)
                     cn.Close();
-                throw new ApplicationException("Error al buscar las provincias");
+                throw new ApplicationException("Error al buscar los tipos");
 
             }
             return listTipoDocumentos;
