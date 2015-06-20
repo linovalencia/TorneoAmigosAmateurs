@@ -11,8 +11,16 @@ D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaD
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeFutbolDTO.pdb
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.dll
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.pdb
+<<<<<<< HEAD
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeFutbolDTO.dll
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeFutbolDTO.pdb
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.csprojResolveAssemblyReference.cache
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.dll
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.pdb
+=======
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeFutbolDTO.dll
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeFutbolDTO.pdb
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.csprojResolveAssemblyReference.cache
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.dll
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.pdb
+>>>>>>> 38a6b62a2fc3a5fcc2e0337190cab584fc322cbc
