@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace LigaDeFutbolDTO
 {
-    public class EstadoFecha : DTOBase
+    public class EstadoDTO : DTOBase
     {
-        public int idEstadoFecha { get; set; }
+        public int idEstado { get; set; }
         public string descripcion { get; set; }
 
 
-        public EstadoFecha()
+        public EstadoDTO()
         {
-            idEstadoFecha = int_NullValue;
+            idEstado = int_NullValue;
             descripcion = string_NullValue;
             IsNew = true;
         }
