@@ -19,3 +19,10 @@ E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeF
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.csprojResolveAssemblyReference.cache
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.dll
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.pdb
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.dll
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.pdb
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.dll
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.pdb
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.csprojResolveAssemblyReference.cache
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.dll
+D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.pdb
