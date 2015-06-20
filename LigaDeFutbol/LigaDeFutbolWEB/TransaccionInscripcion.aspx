@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container">
         <div class="row">
-            <form id="ForTransaccionInscripcion" class="form-horizontal" role="form" runat="server">
+           <%-- <form id="ForTransaccionInscripcion" class="form-horizontal" role="form" runat="server">--%>
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+<%--            </form>--%>
         </div>
 
     </div>

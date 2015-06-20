@@ -1,53 +1,52 @@
-﻿using System;
+﻿using LigaDeFutbolDAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using LigaDeFutbolDAL;
-using LigaDeFutbolDTO;
-using System.Security;
-using System.Web.Security;
+
 public partial class Login2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-
-
     protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
     {
-        string usuario =Login1.UserName.ToString();
-        string password= Login1.Password.ToString();
-        string rol;
+        string nombreUsuario = Login1.UserName.ToString();
+        string password = Login1.Password.ToString();
+        string roles;
 
-        Session.Add("user",usuario);
-        Session.Add("pass",password);
+        Session.Add("user", nombreUsuario);
+        Session.Add("pass", password);
 
-        if (UsuarioDAL.validarUsuario(usuario, password) == true)
+        if (UsuarioDAL.validarUsuario(nombreUsuario, password) == true)
         {
-            rol = UsuarioDAL.buscarRol(usuario, password);
+            roles = UsuarioDAL.buscarRol(nombreUsuario, password);
+
         }
         else
         {
-            rol = "anonimo";
+            roles = "Anonimo";
         }
 
-        if (UsuarioDAL.validarUsuario(usuario, password) == false)
+
+
+        if (Login1.UserName != "Impostor")
         {
-         
-        
-            e.Authenticated=false;
-        
-        }
-
-        FormsAuthenticationTicket autTicket = new FormsAuthenticationTicket(1, Login1.UserName.ToString(), DateTime.Now, DateTime.Now.AddMinutes(60), false, rol);
-        string encrAuthTick = FormsAuthentication.Encrypt(autTicket);
-        HttpCookie autCookie = new HttpCookie(".Test", encrAuthTick);
             
-        Response.Redirect(FormsAuthentication.GetRedirectUrl(Login1.UserName.ToString(),false));
+            FormsAuthenticationTicket autTicket = new FormsAuthenticationTicket(1, Login1.UserName.ToString(), DateTime.Now, DateTime.Now.AddMinutes(60), false, roles);
+            string encrAutTicket = FormsAuthentication.Encrypt(autTicket);
+            HttpCookie autCookie = new HttpCookie(".Test", encrAutTicket);
+            Response.Cookies.Add(autCookie);
 
-        
+            Response.Redirect(FormsAuthentication.GetRedirectUrl(Login1.UserName.ToString(), false));
+        }
+        else
+        {
+            e.Authenticated = false;
+        }
     }
 }

@@ -23,8 +23,8 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-   <%-- <form id="Form1" class="form-horizontal" runat="server" role="form">--%>
-  <%--  <form id="form1" runat="server">--%>
+    <form id="Form1" class="form-horizontal" runat="server" role="form">
+    <%--<form id="form1" runat="server">--%>
         <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container">
               <div class="navbar-header">
@@ -53,19 +53,22 @@
               </ul>
                   
                   
-                  <div class="loginDisplay navbar-form navbar-right">
+                  <div class="loginDisplay navbar-form navbar-right" runat="server">
+                   
                       <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                           <AnonymousTemplate>
-                              <%-- <button  type="submit" class="btn btn-success">Iniciar Sesion</>--%>
-                                  <a href="Login.aspx" type="submit" class="btn btn-success">Iniciar Sesion</a>
+                               <%--<button  type="submit" class="btn btn-success"/>Iniciar Sesion</>--%>
+                                  <a href="Login2.aspx" type="submit" class="btn btn-success">Iniciar Sesión</a>
                               
-                              <%--<a href="InicioSesion.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a>--%>
+                             <%-- <a href="Login2.aspx" id="HeadLoginStatus" runat="server">Iniciar sesión</a>--%>
                           </AnonymousTemplate>
                           <LoggedInTemplate>
-                              <font color="white">  Hola  <span class="bold" ><asp:LoginName ID="HeadLoginName" runat="server" /></span>!</font>
-                              <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="-Cerrar sesión-" LogoutPageUrl="~/"/>
-                          </LoggedInTemplate>
+                              <font color="white">  Hola  <span class="bold" ><asp:LoginName ID="HeadLoginName"  runat="server" /></span>!</font>
+                              <asp:LoginStatus ID="HeadLoginStatus" class="btn btn-success" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/Default.aspx"/>
+                              
+                       </LoggedInTemplate>
                       </asp:LoginView>
+                        
                   </div>
               
               </div><!--/.nav-collapse -->
@@ -93,6 +96,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-1.11.1.js"></script>
-<%-- </form>--%>
+ </form>
 </body>
 </html>
