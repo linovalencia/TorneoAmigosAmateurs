@@ -11,9 +11,9 @@ namespace LigaDeFutbolDAL
 {
     public class EstadoFechaDAL
     {
-        public static List<Estado> obtenerEstadoFecha()
+        public static List<EstadoDTO> obtenerEstadoFecha()
         {
-            List<Estado> estados = new List<Estado>();
+            List<EstadoDTO> estados = new List<EstadoDTO>();
             string consultaSql = "SELECT * FROM estado_fecha";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
@@ -26,7 +26,7 @@ namespace LigaDeFutbolDAL
 
                 while (dr.Read())
                 {
-                    Estado e = new Estado();
+                    EstadoDTO e = new EstadoDTO();
                     e.idEstado = int.Parse(dr["idEstadoFecha"].ToString());
                     e.descripcion = dr["descripcion"].ToString();
                     estados.Add(e);
@@ -37,7 +37,7 @@ namespace LigaDeFutbolDAL
             {
                 ex.ToString();
             }
-            return inscripciones;
+            return estados;
         }
 
     }
