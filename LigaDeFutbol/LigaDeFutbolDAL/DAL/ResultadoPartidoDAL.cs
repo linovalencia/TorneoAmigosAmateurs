@@ -46,5 +46,67 @@ namespace LigaDeFutbolDAL
             }
             return fechas;
         }
+
+        public static void insertarResultados(FechaCampeonato fecha, List<PartidoDTO> Partidos)
+        {
+            string sqlConsulta = @"UPDATE fecha_campeonato
+                                   SET idEstado=@idEstado
+                                    WHERE idFechaCampeonato=@idFecha";
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+            SqlTransaction tran = null;
+           
+
+           try 
+           {
+               cnn.Open();
+               tran = cnn.BeginTransaction();
+
+               SqlCommand cmd = new SqlCommand(sqlConsulta, cnn, tran);
+               cmd.Parameters.AddWithValue("@idEstado", fecha.idEstado);
+               cmd.ExecuteNonQuery();
+               
+               foreach (PartidoDTO pa in Partidos)
+               {
+                   pa.idFechaCampeonato = fecha.idFechaCampeonato;
+                   actualizarResultado(pa, cnn);                   
+               }
+
+               tran.Commit();
+               cnn.Close();
+
+             
+           }
+           catch (SqlException ex)
+           {
+               tran.Rollback();
+               cnn.Close();     
+               ex.ToString();
+           }
+       }
+
+        public static void actualizarResultado(PartidoDTO partido, SqlConnection cnn)
+        {
+            string sqlConsulta = @"UPDATE partido
+                                    SET idEstado=@estado
+                                    , golesLocal=@local
+                                    , golesVisitante=@visitante
+                                    WHERE idPartido=@idPartido";
+
+
+            try
+            {
+                cnn.Open();
+                
+                SqlCommand cmd = new SqlCommand(sqlConsulta, cnn);
+                cmd.Parameters.AddWithValue(@"estado", partido.idPartido);
+                cmd.Parameters.AddWithValue(@"local", partido.golesLocal);
+                cmd.Parameters.AddWithValue(@"visitante", partido.golesVisitante);
+                cnn.Close();
+            }catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
     }
 }
+
