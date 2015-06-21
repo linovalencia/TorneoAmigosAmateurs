@@ -9,14 +9,14 @@ namespace LigaDeFutbolDTO
     public class DetalleInscripcionDTO:DTOBase
     {
         public int idDetalleInscripcion { get; set; }
-        public int idTipoDocumento { get; set; }
-        public int numeroDocumento { get; set; }
+        public int idInscripcion { get; set; }
+        public int idJugador { get; set; }
 
         public DetalleInscripcionDTO() 
         {
             idDetalleInscripcion = int_NullValue;
-            idTipoDocumento = int_NullValue;
-            numeroDocumento = int_NullValue;
+            idInscripcion = int_NullValue;
+            idJugador = int_NullValue;
             IsNew=true;
         }
     }
