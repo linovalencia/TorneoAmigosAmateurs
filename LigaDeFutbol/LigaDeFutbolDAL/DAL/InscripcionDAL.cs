@@ -27,11 +27,11 @@ namespace LigaDeFutbolDAL.DAL
                 while (dr.Read())
                 {
                     InscripcionDTO i=new InscripcionDTO();
+                    i.idInscripcion = int.Parse(dr["idInscripcion"].ToString());
                     i.idClub = int.Parse(dr["idClub"].ToString());
                     i.idCampeonato = int.Parse(dr["idCampeonato"].ToString());
-                    i.numeroInscripcion = int.Parse(dr["numeroInscripcion"].ToString());
+                    
                     i.fechaInscripcion = DateTime.Parse(dr["fechaInscripcion"].ToString());
-                    i.idDetalleInscripcion = int.Parse(dr["idDetalleInscripcion"].ToString());
                     inscripciones.Add(i);
                 }
                 cnn.Close();
@@ -45,8 +45,8 @@ namespace LigaDeFutbolDAL.DAL
 
         public static void insertarInscripcion(InscripcionDTO i, List<DetalleInscripcionDTO> detalles)
         {
-            string consultaSql = @"INSERT INTO inscripcion (idClub, idCampeonato, numeroInscripcion, fechaInscripcion)
-                                  VALUES (@idCl, @idCa, @num, @fecha)";
+            string consultaSql = @"INSERT INTO inscripcion (idInscripcion, idClub, idCampeonato, fechaInscripcion)
+                                  VALUES (@idIns, @idCl, @idCa, @fecha)";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
 
             try
@@ -54,11 +54,10 @@ namespace LigaDeFutbolDAL.DAL
                 cnn.Open();
                 SqlCommand cmd = new SqlCommand(consultaSql, cnn);
 
+                cmd.Parameters.AddWithValue("@idIns", i.idInscripcion);
                 cmd.Parameters.AddWithValue("@idCl", i.idClub);
                 cmd.Parameters.AddWithValue("@idCa", i.idCampeonato);
-                cmd.Parameters.AddWithValue("@num", i.numeroInscripcion);
                 cmd.Parameters.AddWithValue("@fecha", i.fechaInscripcion);
-                cmd.Parameters.AddWithValue("@idDe", i.idDetalleInscripcion);
 
                 cmd.ExecuteNonQuery();
                 cnn.Close();

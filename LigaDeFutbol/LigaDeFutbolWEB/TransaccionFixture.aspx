@@ -18,7 +18,7 @@
                                             Torneo</label><div class="col-md-9">
                                             <asp:DropDownList ID="ddlTorneos" CssClass="form-control" runat="server" AutoPostBack="True"
                                                 AppendDataBoundItems="true" 
-                                                Display="Dynamic">
+                                                Display="Dynamic" OnSelectedIndexChanged="ddlTorneos_SelectedIndexChanged">
                                                 <asp:ListItem Value="0">Seleccione..</asp:ListItem>
                                             </asp:DropDownList>
                                          <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlTorneos"
@@ -56,8 +56,7 @@
                                     <asp:GridView ID="gvEquipos" runat="server" CssClass="table table-hover table-striped"
                                         GridLines="None" AutoGenerateColumns="False">
                                         <Columns>
-                                            <asp:BoundField DataField="idClub" HeaderText="ID       " />
-                                            <asp:BoundField DataField="nombreClub" HeaderText="Nombre       " />
+                                            <asp:BoundField DataField="idClub" HeaderText="ID" />
                                             <asp:CommandField SelectText="Agregar" ShowSelectButton="True" />
                                         </Columns>
                                     </asp:GridView>
