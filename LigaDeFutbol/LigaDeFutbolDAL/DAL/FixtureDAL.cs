@@ -11,12 +11,12 @@ namespace LigaDeFutbolDAL
 {
     public class FixtureDAL
     {
-        public static List<InscripcionDTO> buscarInscripcionesPorCampeonato(int idCampeonato)
+        public static List<ClubDTO> buscarInscripcionesPorCampeonato(int idCampeonato)
         {
-            string consultaSql = @"SELECT * FROM inscripcion
-                                WHERE idCampeonato=@idCampeonato";
+            string consultaSql = @"SELECT i.idClub, c.nombreClub FROM inscripcion i JOIN club c ON i.idClub=c.idClub
+                                WHERE i.idCampeonato=@idCampeonato";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
-            List<InscripcionDTO> inscripciones = new List<InscripcionDTO>();
+            List<ClubDTO> clubes = new List<ClubDTO>();
             try
             {
 
@@ -27,21 +27,18 @@ namespace LigaDeFutbolDAL
 
                 while (dr.Read())
                 {
-                    InscripcionDTO ins = new InscripcionDTO();
-                    ins.idInscripcion = int.Parse(dr["idInscripcion"].ToString());
-                    ins.idClub = int.Parse(dr["idClub"].ToString());
-                    ins.idCampeonato = int.Parse(dr["idCampeonato"].ToString());
-                    ins.fechaInscripcion = DateTime.Parse(dr["fechaInscripcion"].ToString());
-                    inscripciones.Add(ins);
+                    ClubDTO c = new ClubDTO();
+                    c.idClub = int.Parse(dr["idClub"].ToString());
+                    c.nombreClub = dr["nombreClub"].ToString();
+                    clubes.Add(c);
                 }
                 cnn.Close();
-
             }
             catch (Exception ex)
             {
                 ex.ToString();
             }
-            return inscripciones;
+            return clubes;
         }
     }
 }

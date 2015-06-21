@@ -35,14 +35,39 @@ public partial class TransaccionFixture : System.Web.UI.Page
         camp = CampeonatoDAL.buscarCampeonatosPorId(i);
         txtFechaInicio.Text = camp.fechaInicio.ToString();
 
-        //InscripcionDTO ins = new InscripcionDTO();   
-        //ins=FixtureDAL.buscarInscripcionesPorCampeonato(i);
-        //gvEquipos.DataSource = ClubDAL.buscarClubPorId(ins.idClub);
-        ////gvEquipos.DataKeyNames = new string[] { "idClub" };
-        //gvEquipos.DataBind();
-
         gvEquipos.DataSource = FixtureDAL.buscarInscripcionesPorCampeonato(i);
-        //gvEquipos.DataKeyNames = new string[] { "idClub" };
+        gvEquipos.DataKeyNames = new string[] { "idClub" };
         gvEquipos.DataBind();
+
+        txtNumClubes.Text = gvEquipos.Rows.Count.ToString();
+    }
+
+    protected void gvEquipos_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ////
+        //// Se define una lista temporal de registro seleccionados
+        ////
+        //List<DataGridItem> filaSeleccionada = new List<DataGridItem>();
+
+        ////
+        //// Se recorre ca registro de la grilla de origen
+        ////
+        //foreach (DataGridItem row in gvEquipos.Rows)
+        //{
+        //    filaSeleccionada.Add(row);
+        //}
+
+        ////
+        //// Se agrega el item seleccionado a la grilla de destino
+        //// eliminando la fila de la grilla original
+        ////
+        //foreach (DataGridItem row in filaSeleccionada)
+        //{
+        //    gvPartidos.Rows.Add(new object[] {false,
+        //                                    row.Cells[1];
+        //    gvPartidos.row
+        //    dgvProductos.Rows.Remove(row);
+        //}
+        //gvEquipos.DeleteRow(gvEquipos.SelectedRow.RowIndex);
     }
 }

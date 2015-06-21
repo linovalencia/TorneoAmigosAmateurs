@@ -54,9 +54,10 @@
                                             Clubes inscriptos
                                         </label>
                                     <asp:GridView ID="gvEquipos" runat="server" CssClass="table table-hover table-striped"
-                                        GridLines="None" AutoGenerateColumns="False">
+                                        GridLines="None" AutoGenerateColumns="False" OnSelectedIndexChanged="gvEquipos_SelectedIndexChanged">
                                         <Columns>
                                             <asp:BoundField DataField="idClub" HeaderText="ID" />
+                                            <asp:BoundField DataField="nombreClub" HeaderText="Nombre" />
                                             <asp:CommandField SelectText="Agregar" ShowSelectButton="True" />
                                         </Columns>
                                     </asp:GridView>
@@ -121,7 +122,11 @@
                                             </asp:DropDownList>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:BoundField HeaderText="Fecha" ApplyFormatInEditMode="True" />
+                                    <asp:TemplateField HeaderText="Fecha">
+                                        <ItemTemplate>
+                                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                         </div>
@@ -129,4 +134,5 @@
                 </div>                
             </div>
     <%--</form>--%>
+    </div>
 </asp:Content>
