@@ -61,9 +61,9 @@ namespace LigaDeFutbolDAL
 
                 SqlCommand cmd = new SqlCommand(consultaSql, cnn, tran);
 
-                //actualizarNroInscripcion(cnn, tran);
-                //i.idInscripcion = obtenerID(cnn, tran);
-                //cmd.Parameters.AddWithValue("@idIns", i.idInscripcion);
+                /*actualizarNroInscripcion(cnn, tran);
+                i.idInscripcion = obtenerID(cnn, tran);
+                cmd.Parameters.AddWithValue("@idIns", i.idInscripcion);*/
 
                 cmd.Parameters.AddWithValue("@idCl", i.idClub);
                 cmd.Parameters.AddWithValue("@idCa", i.idCampeonato);
@@ -99,7 +99,7 @@ namespace LigaDeFutbolDAL
             
         }
 
-        public static void actualizarNroInscripcion(SqlConnection cn, SqlTransaction tran)
+        /*public static void actualizarNroInscripcion(SqlConnection cn, SqlTransaction tran)
         {
             string sql = @"UPDATE idInscripcion 
                          SET idInscripcion = idInscripcion +1";
@@ -124,7 +124,7 @@ namespace LigaDeFutbolDAL
 
 
             return numero;
-        }
+        }*/
 
       
 

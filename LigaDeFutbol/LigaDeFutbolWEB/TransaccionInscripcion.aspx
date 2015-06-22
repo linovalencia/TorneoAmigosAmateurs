@@ -184,8 +184,9 @@
                                 <div class="btn-group-lg text-center">
                                     <asp:Button ID="btnRegistrar" runat="server" class="btn btn-success" Text="Registrar"
                                         OnClick="btnRegistrar_Click" ValidationGroup="inscripcion" />
-                                    <asp:Button ID="btnEliminar" runat="server" class="btn btn-danger" Text="Cancelar"
-                                        CausesValidation="False" OnClick="btnEliminar_Click" OnClientClick="return window.confirm('¿Desea cancelar la registro de la inscripcion?');" />
+
+                                    <asp:Button ID="btnCancelar" runat="server" class="btn btn-danger" Text="Cancelar"
+                                        CausesValidation="False" OnClick="btnCancelar_Click" OnClientClick="return window.confirm('¿Desea cancelar la registro de la inscripcion?');" />
                                 </div>
                             </div>
                         
