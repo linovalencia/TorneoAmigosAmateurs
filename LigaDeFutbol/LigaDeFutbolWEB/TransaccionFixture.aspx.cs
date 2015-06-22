@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using LigaDeFutbolDAL;
 using LigaDeFutbolDTO;
+using System.Data;
 
 public partial class TransaccionFixture : System.Web.UI.Page
 {
@@ -42,32 +43,27 @@ public partial class TransaccionFixture : System.Web.UI.Page
         txtNumClubes.Text = gvEquipos.Rows.Count.ToString();
     }
 
+
+
     protected void gvEquipos_SelectedIndexChanged(object sender, EventArgs e)
     {
-        ////
-        //// Se define una lista temporal de registro seleccionados
-        ////
-        //List<DataGridItem> filaSeleccionada = new List<DataGridItem>();
 
-        ////
-        //// Se recorre ca registro de la grilla de origen
-        ////
-        //foreach (DataGridItem row in gvEquipos.Rows)
-        //{
-        //    filaSeleccionada.Add(row);
-        //}
+        // Se define una lista temporal de registro seleccionados
+        List<GridViewRow> rowSelected = new List<GridViewRow>();
 
-        ////
-        //// Se agrega el item seleccionado a la grilla de destino
-        //// eliminando la fila de la grilla original
-        ////
-        //foreach (DataGridItem row in filaSeleccionada)
-        //{
-        //    gvPartidos.Rows.Add(new object[] {false,
-        //                                    row.Cells[1];
-        //    gvPartidos.row
-        //    dgvProductos.Rows.Remove(row);
-        //}
-        //gvEquipos.DeleteRow(gvEquipos.SelectedRow.RowIndex);
+        //acá quiero capturar la fila actual
+        GridViewRow puntero = gvEquipos.SelectedRow;
+        // Se recupera el campo/fila seleccionado y se agrega a la lista temporal
+        rowSelected.Add(puntero);
+
+        foreach (GridViewRow row in rowSelected)
+        { //// Se agrega el item seleccionado a la grilla de destino
+            DataTable dt = new DataTable();
+            DataRow dr = dt.NewRow();
+            dt.Rows.Add(new object[] { row.Cells[1].Text });
+
+            gvPartidos.DataSource = dt;
+            gvPartidos.DataBind();
+        }
     }
 }
