@@ -52,5 +52,40 @@ namespace LigaDeFutbolDAL
             }
             return campeonatos;
         }
+
+        public static CampeonatoDTO buscarCampeonatosPorId(int idCampeonato)
+        {
+            string consultaSql = @"SELECT * FROM campeonato
+                                WHERE idCampeonato=@idCampeonato";
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+            CampeonatoDTO camp = new CampeonatoDTO();
+            try
+            {
+
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(consultaSql, cnn);
+                cmd.Parameters.AddWithValue(@"idCampeonato", idCampeonato);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    camp.idCampeonato = int.Parse(dr["idCampeonato"].ToString());
+                    camp.nombre = dr["nombre"].ToString();
+                    camp.fechaInicio = DateTime.Parse(dr["fechaInicio"].ToString());
+                    camp.fechaFin = DateTime.Parse(dr["fechaFin"].ToString());
+                    camp.idEstadoCampeonato = int.Parse(dr["idEstadoCampeonato"].ToString());
+                    camp.puntosPartidoGanado = int.Parse(dr["puntosPartidoGanado"].ToString());
+                    camp.puntosPartidoEmpatado = int.Parse(dr["puntosPartidoEmpatado"].ToString());
+                    camp.fechaLimiteInscripcion = DateTime.Parse(dr["fechaLimiteInscripcion"].ToString());
+                }
+                cnn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            return camp;
+        }
     }
 }

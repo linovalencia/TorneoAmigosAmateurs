@@ -12,13 +12,6 @@ D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeF
 D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.pdb
 D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.dll
 D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.pdb
-E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.dll
-E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.pdb
-E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.dll
-E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.pdb
-E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.csprojResolveAssemblyReference.cache
-E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.dll
-E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.pdb
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.dll
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.pdb
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.dll
@@ -26,3 +19,17 @@ D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaD
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.csprojResolveAssemblyReference.cache
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.dll
 D:\Documents\UTN\CUARTO AÑO\PAV II\Proyecto Practico\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.pdb
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.dll
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.pdb
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.dll
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.pdb
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.csprojResolveAssemblyReference.cache
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.dll
+E:\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.pdb
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.dll
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDAL.pdb
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.dll
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\bin\Debug\LigaDeFutbolDTO.pdb
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.csprojResolveAssemblyReference.cache
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.dll
+E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDAL\obj\Debug\LigaDeFutbolDAL.pdb

@@ -16,7 +16,7 @@ namespace LigaDeFutbolDTO
         public int idClubVisitante { get; set; }
         public int golesLocal { get; set; }
         public int golesVisitante { get; set; }
-        public int numeroFecha { get; set; }
+        public int idFechaCampeonato { get; set; }
         public int idCampeonato { get; set; }
         public string descripcion { get; set; }
 
@@ -30,7 +30,7 @@ namespace LigaDeFutbolDTO
             idClubVisitante = int_NullValue;
             golesLocal = int_NullValue;
             golesVisitante = int_NullValue;
-            numeroFecha = int_NullValue;
+            idFechaCampeonato = int_NullValue;
             idCampeonato = int_NullValue;
             descripcion = string_NullValue;
             IsNew = true;
