@@ -84,9 +84,10 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
             inscripcion.fechaInscripcion = DateTime.Today;
             inscripcion.idCampeonato = int.Parse(ddlCampeonato.SelectedItem.Value);
             inscripcion.idClub = int.Parse(ddlClub.SelectedItem.Value);
-
-
             InscripcionDAL.insertarInscripcion(inscripcion, Detalles, Jugadores);
+
+            Detalles = new List<DetalleInscripcionDTO>();
+            Jugadores = new List<JugadorDTO>();
 
             lblMensajeExito.Text = "Inscripción grabada con exito";
         }
