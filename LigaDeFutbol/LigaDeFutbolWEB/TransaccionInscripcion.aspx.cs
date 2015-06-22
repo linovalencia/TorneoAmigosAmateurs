@@ -22,30 +22,6 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
 
     }
 
-
-
-
-
-    protected void btnEliminar_Click(object sender, EventArgs e)
-    {
-
-    }
-    protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void ddlLocalidad_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void ddlClub_SelectedIndexChanged(object sender, EventArgs e)
-    {
-    }
-    protected void ddlCampeonato_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
     protected void gvJugadores_SelectedIndexChanged(object sender, EventArgs e)
     {
         int idJugador = int.Parse(gvJugadores.SelectedDataKey.Value.ToString());
@@ -64,12 +40,13 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
         CargarGrilla();
 
     }
+
     protected void btnAgregar_Click(object sender, EventArgs e)
     {
         try
         {
-            JugadorDTO j = new JugadorDTO();            
-            
+            JugadorDTO j = new JugadorDTO();
+
             j.nombre = txtNombre.Text;
             j.apellido = txtApellido.Text;
             j.idTipoDocumento = int.Parse(ddlTipoDocumento.SelectedValue);
@@ -83,7 +60,7 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
             Detalles.Add(detalle);
 
             Jugadores.Add(j);
-        
+
 
         }
         catch (ApplicationException ex)
@@ -96,20 +73,21 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
 
         CargarGrilla();
 
-    }  
-
-
+    }
     protected void btnRegistrar_Click(object sender, EventArgs e)
     {
+        lblMensajeError.Text = String.Empty;
+        lblMensajeExito.Text = String.Empty;
         try
         {
             InscripcionDTO inscripcion = new InscripcionDTO();
             inscripcion.fechaInscripcion = DateTime.Today;
             inscripcion.idCampeonato = int.Parse(ddlCampeonato.SelectedItem.Value);
             inscripcion.idClub = int.Parse(ddlClub.SelectedItem.Value);
-
-
             InscripcionDAL.insertarInscripcion(inscripcion, Detalles, Jugadores);
+
+            Detalles = new List<DetalleInscripcionDTO>();
+            Jugadores = new List<JugadorDTO>();
 
             lblMensajeExito.Text = "Inscripción grabada con exito";
         }
@@ -119,6 +97,7 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
         }
 
     }
+
     public List<DetalleInscripcionDTO> Detalles
     {
         get
@@ -151,12 +130,6 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
         }
     }
 
-
-
-
-
-
-
     public void limpiarCampos()
     {
         ddlTipoDocumento.SelectedIndex = 0;
@@ -165,7 +138,6 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
         txtNombre.Text = "";
         txtFechaNacimiento.Text = "";
     }
-
     private void CargarGrilla()
     {
         try
@@ -179,8 +151,6 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
             lblMensajeError.Text = ex.Message;
         }
     }
-
-
     private void CargarComboTipoDocumento()
     {
         ddlTipoDocumento.DataSource = TipoDocumentoDAL.ObtenerTodo();
@@ -190,7 +160,6 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
         ddlTipoDocumento.TabIndex = 0;
 
     }
-
     private void CargarComboClub()
     {
         ddlClub.DataSource = ClubDAL.obtenerClubes();
@@ -200,7 +169,6 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
         ddlClub.TabIndex = 0;
 
     }
-
     private void CargarComboCampeonato()
     {
         ddlCampeonato.DataSource = CampeonatoDAL.obtenerCampeonatos();
@@ -211,4 +179,17 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
 
     }
 
+
+    protected void ddlClub_SelectedIndexChanged(object sender, EventArgs e)
+    {
+    }
+    protected void ddlCampeonato_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
+    }
 }

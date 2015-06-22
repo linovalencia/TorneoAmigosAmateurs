@@ -58,10 +58,32 @@
                                             <asp:BoundField DataField="nombreClubLocal" HeaderText="Club Local       " />
                                              <asp:BoundField DataField="nombreClubVisitante" HeaderText="Club Visitante       " />
 
-                                            <asp:CommandField SelectText="Agregar" ShowSelectButton="True" />
+                                            <asp:TemplateField HeaderText="Goles Local">
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txtGolesLocal" runat="server"></asp:TextBox>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Goles Visitante">
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txtGolesVisitante" runat="server"></asp:TextBox>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:BoundField DataField="fechaPartido" HeaderText="Fecha" />
+                                            <asp:BoundField DataField="horaPartido" HeaderText="Hora" />
+                                            <asp:TemplateField HeaderText="Estado">
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="ddlEstadoPartido" runat="server">
+                                                    </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
                                 </div>
+                            <div class="form-group">
+
+                            <div class="btn-group-lg text-center">
+                                <asp:Button ID="btnGrabar" runat="server" class="btn btn-success" Text="Grabar"/> 
+                            </div>
                                
                             <%--</div>--%>
                             <div class="btn-group-lg text-center">
@@ -73,27 +95,7 @@
                         </div>
                     </div>
 
-                <div class="panel panel-primary">
-                        <%--<div class="panel-heading">--%>
-                            <div class="panel-heading col-lg-6 " >
-                            <h4>Club Local</h4>
-                                 <div class="form-group">
-                                        <label for="transaccionPartidon" class="col-lg-6 control-label">
-                                           Id Club Local
-                                        </label>
-                                        <div class="col-lg-9">
-                                            <fieldset>
-                                                <asp:TextBox ID="txtIdClubLocal" CssClass="form-control" runat="server"></asp:TextBox>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                            </div>
-                      
-                            <div class="panel-heading col-md-6 " >
-                            <h4>Club Visitante</h4>
-                        </div>
-                    </div>
-                                
             </div>
+    </div>
 </asp:Content>
 

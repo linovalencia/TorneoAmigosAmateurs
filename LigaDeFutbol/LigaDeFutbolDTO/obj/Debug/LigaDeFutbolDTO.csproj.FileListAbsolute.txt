@@ -20,3 +20,4 @@ E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeF
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\bin\Debug\LigaDeFutbolDTO.pdb
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.dll
 E:\Proyectos\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.pdb
+D:\UTN\PAVII\TorneoAmigosAmateurs\LigaDeFutbol\LigaDeFutbolDTO\obj\Debug\LigaDeFutbolDTO.csprojResolveAssemblyReference.cache

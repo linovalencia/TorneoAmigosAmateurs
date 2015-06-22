@@ -47,9 +47,9 @@ namespace LigaDeFutbolDAL
 
         public static void insertarInscripcion(InscripcionDTO i, List<DetalleInscripcionDTO> detalles, List<JugadorDTO> jugadores)
         {
-            string consultaSql = @"INSERT INTO inscripcion (idInscripcion, idClub, idCampeonato, fechaInscripcion)
+            string consultaSql = @"INSERT INTO inscripcion (idClub, idCampeonato, fechaInscripcion)
 
-                                  VALUES (@idIns, @idCl, @idCa, @fecha)";
+                                  VALUES (@idCl, @idCa, @fecha)";
 
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
             SqlTransaction tran = null;
@@ -60,11 +60,11 @@ namespace LigaDeFutbolDAL
                 tran = cnn.BeginTransaction();
 
                 SqlCommand cmd = new SqlCommand(consultaSql, cnn, tran);
-                actualizarNroInscripcion(cnn, tran);
+
+                /*actualizarNroInscripcion(cnn, tran);
                 i.idInscripcion = obtenerID(cnn, tran);
+                cmd.Parameters.AddWithValue("@idIns", i.idInscripcion);*/
 
-
-                cmd.Parameters.AddWithValue("@idIns", i.idInscripcion);
                 cmd.Parameters.AddWithValue("@idCl", i.idClub);
                 cmd.Parameters.AddWithValue("@idCa", i.idCampeonato);
                 cmd.Parameters.AddWithValue("@fecha", i.fechaInscripcion);
@@ -99,7 +99,7 @@ namespace LigaDeFutbolDAL
             
         }
 
-        public static void actualizarNroInscripcion(SqlConnection cn, SqlTransaction tran)
+        /*public static void actualizarNroInscripcion(SqlConnection cn, SqlTransaction tran)
         {
             string sql = @"UPDATE idInscripcion 
                          SET idInscripcion = idInscripcion +1";
@@ -124,7 +124,7 @@ namespace LigaDeFutbolDAL
 
 
             return numero;
-        }
+        }*/
 
       
 
