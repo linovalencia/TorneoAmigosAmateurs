@@ -84,6 +84,7 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
             inscripcion.fechaInscripcion = DateTime.Today;
             inscripcion.idCampeonato = int.Parse(ddlCampeonato.SelectedItem.Value);
             inscripcion.idClub = int.Parse(ddlClub.SelectedItem.Value);
+            inscripcion.idInscripcion = -1;
             InscripcionDAL.insertarInscripcion(inscripcion, Detalles, Jugadores);
 
             Detalles = new List<DetalleInscripcionDTO>();

@@ -21,7 +21,7 @@
 
     <link href="css/jquery-bootstrap-datepicker.css" rel="stylesheet" />
     <script src="js/jquery-1.11.1.js"></script>
-    
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -47,12 +47,22 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="Default.aspx">Home</a></li>
 
-                        <li><a href="ABMArbitro.aspx">Arbitro</a></li>
-                        <li><a href="ABMCancha.aspx">Cancha</a></li>
-                        <li><a href="ABMClub1.aspx">Club</a></li>
+
                         <li><a href="TransaccionInscripcion.aspx">Inscripcion</a></li>
                         <li><a href="TransaccionFixture.aspx">Fixture</a></li>
-                         <li><a href="TransaccionPartido.aspx">Partido</a></li>
+                        <li><a href="TransaccionPartido.aspx">Partido</a></li>
+
+                          <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Altas <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ABMArbitro.aspx">Arbitro</a></li>
+                                <li><a href="ABMCancha.aspx">Cancha</a></li>
+                                <li><a href="ABMClub1.aspx">Club</a></li>
+
+                            </ul>
+                        </li>
+
+
                     </ul>
 
 
