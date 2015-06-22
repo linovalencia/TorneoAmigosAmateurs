@@ -32,10 +32,10 @@ public partial class TransaccionFixture : System.Web.UI.Page
 
         CampeonatoDTO camp = new CampeonatoDTO();
         int i = int.Parse(ddlTorneos.SelectedItem.Value.ToString());
-        camp = CampeonatoDAL.buscarCampeonatosPorId(i);
+    //    camp = CampeonatoDAL.buscarCampeonatosPorId(i);
         txtFechaInicio.Text = camp.fechaInicio.ToString();
 
-        gvEquipos.DataSource = FixtureDAL.buscarInscripcionesPorCampeonato(i);
+      //  gvEquipos.DataSource = FixtureDAL.buscarInscripcionesPorCampeonato(i);
         gvEquipos.DataKeyNames = new string[] { "idClub" };
         gvEquipos.DataBind();
 

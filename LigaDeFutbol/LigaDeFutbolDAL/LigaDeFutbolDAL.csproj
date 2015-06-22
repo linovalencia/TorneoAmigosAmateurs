@@ -44,12 +44,12 @@
     <Compile Include="DAL\CampeonatoDAL.cs" />
     <Compile Include="DAL\CanchaDAL.cs" />
     <Compile Include="DAL\ClubDAL.cs" />
-<<<<<<< HEAD
+
     <Compile Include="DAL\DetalleInscripcionDAL.cs" />
-=======
+
     <Compile Include="DAL\EstadoFechaDAL.cs" />
     <Compile Include="DAL\EstadoPartidoDAL.cs" />
->>>>>>> b9b52fa4f5e28334a237e5ec7e8e9dd81a262fbe
+
     <Compile Include="DAL\FixtureDAL.cs" />
     <Compile Include="DAL\InscripcionDAL.cs" />
     <Compile Include="DAL\JugadorDAL.cs" />

@@ -15,7 +15,7 @@ public partial class TransaccionPartido : System.Web.UI.Page
 
     private void CargarCombo()
     {
-        ddlFechas.DataSource = ResultadoPartidoDAL.obtenerFechas();
+        //ddlFechas.DataSource = ResultadoPartidoDAL.obtenerFechas();
         ddlFechas.DataValueField = "idFechaCampeonato";
         ddlFechas.DataTextField = "numeroFecha";
         ddlFechas.DataBind();

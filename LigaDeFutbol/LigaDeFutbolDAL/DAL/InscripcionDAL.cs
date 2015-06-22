@@ -27,25 +27,13 @@ namespace LigaDeFutbolDAL
                 while (dr.Read())
                 {
                     InscripcionDTO i=new InscripcionDTO();
-<<<<<<< .mine
-                    i.idInscripcion = int.Parse(dr["numeroInscripcion"].ToString());
-=======
-                    i.idInscripcion = int.Parse(dr["idInscripcion"].ToString());
->>>>>>> .theirs
-                    i.idClub = int.Parse(dr["idClub"].ToString());
-<<<<<<< .mine
-                    i.idCampeonato = int.Parse(dr["idCampeonato"].ToString());                    
 
-=======
+                    i.idInscripcion = int.Parse(dr["idInscripcion"].ToString());
+                    i.idClub = int.Parse(dr["idClub"].ToString());
                     i.idCampeonato = int.Parse(dr["idCampeonato"].ToString());
                     
->>>>>>> .theirs
                     i.fechaInscripcion = DateTime.Parse(dr["fechaInscripcion"].ToString());
-<<<<<<< .mine
-                   
-=======
 
->>>>>>> .theirs
                     inscripciones.Add(i);
                 }
                 cnn.Close();
@@ -59,13 +47,10 @@ namespace LigaDeFutbolDAL
 
         public static void insertarInscripcion(InscripcionDTO i, List<DetalleInscripcionDTO> detalles, List<JugadorDTO> jugadores)
         {
-<<<<<<< .mine
             string consultaSql = @"INSERT INTO inscripcion (idInscripcion, idClub, idCampeonato, fechaInscripcion)
-                                  VALUES (@num, @idCl, @idCa, @fecha)";
-=======
-            string consultaSql = @"INSERT INTO inscripcion (idInscripcion, idClub, idCampeonato, fechaInscripcion)
+
                                   VALUES (@idIns, @idCl, @idCa, @fecha)";
->>>>>>> .theirs
+
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
             SqlTransaction tran = null;
 
@@ -74,29 +59,17 @@ namespace LigaDeFutbolDAL
                 cnn.Open();
                 tran = cnn.BeginTransaction();
 
-<<<<<<< .mine
                 SqlCommand cmd = new SqlCommand(consultaSql, cnn, tran);
                 actualizarNroInscripcion(cnn, tran);
                 i.idInscripcion = obtenerID(cnn, tran);
 
-                cmd.Parameters.AddWithValue("@num", i.idInscripcion);
-=======
+
                 cmd.Parameters.AddWithValue("@idIns", i.idInscripcion);
-
-
-
-
->>>>>>> .theirs
                 cmd.Parameters.AddWithValue("@idCl", i.idClub);
-<<<<<<< .mine
-                cmd.Parameters.AddWithValue("@idCa", i.idCampeonato);                
-=======
                 cmd.Parameters.AddWithValue("@idCa", i.idCampeonato);
->>>>>>> .theirs
                 cmd.Parameters.AddWithValue("@fecha", i.fechaInscripcion);
-<<<<<<< .mine
-                
                 cmd.ExecuteNonQuery();
+
                 foreach (DetalleInscripcionDTO de in detalles)
                 {
                     de.idInscripcion = i.idInscripcion;
@@ -107,20 +80,6 @@ namespace LigaDeFutbolDAL
                 {
                     JugadorDAL.InsertarJugador(j);
                 
-=======
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
 
                 }
                 tran.Commit();
