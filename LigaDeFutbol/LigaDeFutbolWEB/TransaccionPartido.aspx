@@ -73,27 +73,7 @@
                         </div>
                     </div>
 
-                <div class="panel panel-primary">
-                        <%--<div class="panel-heading">--%>
-                            <div class="panel-heading col-lg-6 " >
-                            <h4>Club Local</h4>
-                                 <div class="form-group">
-                                        <label for="transaccionPartidon" class="col-lg-6 control-label">
-                                           Id Club Local
-                                        </label>
-                                        <div class="col-lg-9">
-                                            <fieldset>
-                                                <asp:TextBox ID="txtIdClubLocal" CssClass="form-control" runat="server"></asp:TextBox>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                            </div>
-                      
-                            <div class="panel-heading col-md-6 " >
-                            <h4>Club Visitante</h4>
-                        </div>
-                    </div>
-                                
             </div>
+    </div>
 </asp:Content>
 
