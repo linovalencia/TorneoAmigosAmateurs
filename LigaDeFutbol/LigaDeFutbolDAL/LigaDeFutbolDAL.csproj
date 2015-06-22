@@ -50,9 +50,9 @@
     <Compile Include="DAL\FixtureDAL.cs" />
     <Compile Include="DAL\InscripcionDAL.cs" />
     <Compile Include="DAL\JugadorDAL.cs" />
+    <Compile Include="DAL\PartidoDAL.cs" />
     <Compile Include="DAL\TipoDocumentoDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
-    <Compile Include="PartidoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DAL\ResultadoPartidoDAL.cs" />
     <Compile Include="Util\DALBase.cs" />

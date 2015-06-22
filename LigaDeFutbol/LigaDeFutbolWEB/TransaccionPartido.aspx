@@ -18,7 +18,7 @@
                                             Fecha N°</label><div class="col-md-9">
                                             <asp:DropDownList ID="ddlFechas" CssClass="form-control" runat="server" AutoPostBack="True"
                                                 AppendDataBoundItems="true" 
-                                                Display="Dynamic">
+                                                Display="Dynamic" OnSelectedIndexChanged="ddlFechas_SelectedIndexChanged">
                                                 <asp:ListItem Value="0">Seleccione..</asp:ListItem>
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlFechas"
@@ -30,7 +30,7 @@
                                         <div class="form-group">
                                         <label for="transaccionPartido" class="col-md-3 control-label">
                                             Estado Fecha</label><div class="col-md-9">
-                                            <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" AutoPostBack="True"
+                                            <asp:DropDownList ID="ddlEstadoFecha" CssClass="form-control" runat="server" AutoPostBack="True"
                                                 AppendDataBoundItems="true" 
                                                 Display="Dynamic">
                                                 <asp:ListItem Value="0">Seleccione..</asp:ListItem>
@@ -52,15 +52,27 @@
                                         </label>
 
                                     <asp:GridView ID="gvPartido" runat="server" CssClass="table table-hover table-striped"
-                                        GridLines="None" AutoGenerateColumns="False">
+                                        GridLines="None" AutoGenerateColumns="False" OnSelectedIndexChanged="gvPartido_SelectedIndexChanged">
                                         <Columns>
                                             <asp:BoundField DataField="idPartido" HeaderText="ID       " />
                                             <asp:BoundField DataField="nombreClubLocal" HeaderText="Club Local       " />
                                              <asp:BoundField DataField="nombreClubVisitante" HeaderText="Club Visitante       " />
 
                                             <asp:TemplateField HeaderText="Goles Local">
+                                                <AlternatingItemTemplate>
+                                                    Club Local
+                                                </AlternatingItemTemplate>
+                                                <EditItemTemplate>
+                                                    Club Visitante
+                                                </EditItemTemplate>
+                                                <FooterTemplate>
+                                                    Goles Visitante
+                                                </FooterTemplate>
+                                                <HeaderTemplate>
+                                                    Goles Local
+                                                </HeaderTemplate>
                                                 <ItemTemplate>
-                                                    <asp:TextBox ID="txtGolesLocal" runat="server"></asp:TextBox>
+                                                    ID
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Goles Visitante">
@@ -72,7 +84,7 @@
                                             <asp:BoundField DataField="horaPartido" HeaderText="Hora" />
                                             <asp:TemplateField HeaderText="Estado">
                                                 <ItemTemplate>
-                                                    <asp:DropDownList ID="ddlEstadoPartido" runat="server">
+                                                    <asp:DropDownList ID="ddlEstadoPartido" runat="server" OnSelectedIndexChanged="ddlEstadoPartido_SelectedIndexChanged">
                                                     </asp:DropDownList>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
@@ -96,6 +108,7 @@
                     </div>
 
             </div>
+    </div>
     </div>
 </asp:Content>
 

@@ -10,8 +10,11 @@ public partial class TransaccionPartido : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        CargarComboFechas();
-        CargarComboEstadoFecha();
+        if (!Page.IsPostBack)
+        {
+            CargarComboFechas();
+            CargarComboEstadoFecha();
+        }
     }
 
     private void CargarComboFechas()
@@ -33,42 +36,37 @@ public partial class TransaccionPartido : System.Web.UI.Page
 
     }
 
-    protected void ddlFechas_SelectedIndexChanged(object sender, EventArgs e)
-    {
+   
 
-        CargarGrillaPartidos();
-        
-    }
-
-    protected void btnRegistrarResultado_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            FechaCampeonato fe = new FechaCampeonato();
-            fe.idEstado = ddlEstadoFecha.SelectedItem.Value;
+    //protected void btnRegistrarResultado_Click(object sender, EventArgs e)
+    //{
+    //    try
+    //    {
+    //        FechaCampeonato fe = new FechaCampeonato();
+    //        fe.idEstado = int.Parse(ddlEstadoFecha.SelectedItem.Value);
 
 
-            int i = int.Parse(gvPartido.SelectedDataKey.Value.ToString());
+    //        int i = int.Parse(gvPartido.SelectedDataKey.Value.ToString());
             
 
             
-            PartidoDTO pa = new PartidoDTO();
-            pa = ResultadoPartidoDAL.(i)
-            pa.idPartido = j.idJugador;
-            detalle.idDetalleInscripcion = -1;
-            detalle.idInscripcion = -1;
-            Detalles.Add(detalle);
+    //        PartidoDTO pa = new PartidoDTO();
+    //        Partidos = ResultadoPartidoDAL.obtenerPartidosDeFechaXPorId(i);
 
-            ResultadoPartidoDAL.insertarResultados(fe,Partidos);
+    //        pa.idPartido = ;
+           
+    //        Partidos.Add(pa);
 
-            lblMensajeExito.Text = "Inscripción grabada con exito";
-        }
-        catch (ApplicationException ex)
-        {
-            lblMensajeError.Text = ex.Message;
-        }
+    //        ResultadoPartidoDAL.insertarResultados(fe,Partidos);
 
-    }
+    //        lblMensajeExito.Text = "Inscripción grabada con exito";
+    //    }
+    //    catch (ApplicationException ex)
+    //    {
+    //        lblMensajeError.Text = ex.Message;
+    //    }
+
+    //}
 
     public List<PartidoDTO> Partidos
     {
@@ -90,7 +88,7 @@ public partial class TransaccionPartido : System.Web.UI.Page
       {
         try
         {
-            int i = int.Parse(ddlFechas.SelectedItem.Value.ToString());
+            int i = int.Parse(ddlFechas.SelectedItem.Value);
 
             //gvPartido.DataSource = ResultadoPartidoDAL.obtenerPartidosDeFechaXPorId(i);
             //gvPartido.DataBind();
@@ -107,4 +105,31 @@ public partial class TransaccionPartido : System.Web.UI.Page
     }
 
 
+  
+    private void CargarComboEstadoPartido() 
+    {
+        DropDownList ddl=(DropDownList)gvPartido.FindControl("ddlEstadoPartido");
+        ddl.DataSource=EstadoFechaDAL.obtenerEstadoFecha();
+        
+        ddl.DataTextField = "descripcion";
+        ddl.DataValueField = "idEstado";
+        ddl.DataBind();
+        ddl.TabIndex = 0;
+    }
+
+    protected void gvPartido_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void ddlEstadoPartido_SelectedIndexChanged(object sender, EventArgs e)
+    {
+       
+    }
+  
+    protected void ddlFechas_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        CargarGrillaPartidos();
+        CargarComboEstadoPartido();
+    }
 }

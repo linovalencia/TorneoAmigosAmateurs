@@ -51,6 +51,7 @@
     <Compile Include="Entidad\InscripcionDTO.cs" />
     <Compile Include="Entidad\JugadorDTO.cs" />
     <Compile Include="Entidad\PartidoDTO.cs" />
+    <Compile Include="Entidad\ResultadoPartidoDTO.cs" />
     <Compile Include="Entidad\TipoDocumentoDTO.cs" />
     <Compile Include="Util\DTOBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -32,7 +32,7 @@ namespace LigaDeFutbolDAL
                 while (dr.Read())
                 {
                     EstadoDTO e = new EstadoDTO();
-                    e.idEstado = int.Parse(dr["idEstadoFecha"].ToString());
+                    e.idEstado = int.Parse(dr["idEstado"].ToString());
                     e.descripcion = dr["descripcion"].ToString();
                     estados.Add(e);
                 }
