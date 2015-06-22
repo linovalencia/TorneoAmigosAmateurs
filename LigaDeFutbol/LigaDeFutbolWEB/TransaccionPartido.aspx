@@ -58,10 +58,32 @@
                                             <asp:BoundField DataField="nombreClubLocal" HeaderText="Club Local       " />
                                              <asp:BoundField DataField="nombreClubVisitante" HeaderText="Club Visitante       " />
 
-                                            <asp:CommandField SelectText="Agregar" ShowSelectButton="True" />
+                                            <asp:TemplateField HeaderText="Goles Local">
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txtGolesLocal" runat="server"></asp:TextBox>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Goles Visitante">
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txtGolesVisitante" runat="server"></asp:TextBox>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:BoundField DataField="fechaPartido" HeaderText="Fecha" />
+                                            <asp:BoundField DataField="horaPartido" HeaderText="Hora" />
+                                            <asp:TemplateField HeaderText="Estado">
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="ddlEstadoPartido" runat="server">
+                                                    </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
                                 </div>
+                            <div class="form-group">
+
+                            <div class="btn-group-lg text-center">
+                                <asp:Button ID="btnGrabar" runat="server" class="btn btn-success" Text="Grabar"/> 
+                            </div>
                                
                             <%--</div>--%>
                             <div class="btn-group-lg text-center">
