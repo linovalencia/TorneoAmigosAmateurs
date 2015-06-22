@@ -47,6 +47,53 @@ namespace LigaDeFutbolDAL
             return fechas;
         }
 
+        public static List<PartidoDTO> obtenerPartidosDeFechaXPorId(int id)
+        {
+            List<PartidoDTO> partidos = new List<PartidoDTO>();
+            //            string consultaSql = @"SELECT fc.numeroFecha,p.idPartido,p.idEstado,cl.nombreClub as 'nombreLocal', cv.nombreClub as 'nombreVisitante' 
+            //                                 FROM fecha_campeonato fc INNER JOIN partido p ON fc.idFechaCampeonato=p.idFechaCampeonato
+            //                                 INNER JOIN club cl ON p.idClubLocal=cl.idClub INNER JOIN club cv ON p.idClubVisitante=cv.idClub
+            //                                        WHERE fc.idFechaCampeonato=@id";
+            string consultaSql = @"SELECT * partido
+                                WHERE idFechaCampeonato=@id";
+            SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+
+            try
+            {
+                cnn.Open();
+
+                SqlCommand cmd = new SqlCommand(consultaSql, cnn);
+                cmd.Parameters.AddWithValue(@"idFechaCampeonato", id);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    PartidoDTO p = new PartidoDTO();
+                    p.idPartido = int.Parse(dr["idPartido"].ToString());
+                    p.fechaPartido = DateTime.Parse(dr["fechaPartido"].ToString());
+                    p.horaPartido = DateTime.Parse(dr["horaPartido"].ToString());
+                    p.idEstado = int.Parse(dr["idEstado"].ToString());
+                    p.idClubLocal = int.Parse(dr["idClubLocal"].ToString());
+                    p.idClubVisitante = int.Parse(dr["idClubVisitante"].ToString());
+                    p.golesLocal = int.Parse(dr["golesLocal"].ToString());
+                    p.golesVisitante = int.Parse(dr["golesVisitante"].ToString());
+                    p.idFechaCampeonato = int.Parse(dr["idFechaCampeonato"].ToString());
+                    p.descripcion = dr["descripcion"].ToString();
+                    p.idCampeonato = int.Parse(dr["idCampeonato"].ToString());
+                    partidos.Add(p);
+                }
+                cnn.Close();
+
+
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            return partidos;
+        }
+
         public static void insertarResultados(FechaCampeonato fecha, List<PartidoDTO> Partidos)
         {
             string sqlConsulta = @"UPDATE fecha_campeonato
@@ -83,6 +130,8 @@ namespace LigaDeFutbolDAL
                ex.ToString();
            }
        }
+
+       
 
         public static void actualizarResultado(PartidoDTO partido, SqlConnection cnn)
         {
