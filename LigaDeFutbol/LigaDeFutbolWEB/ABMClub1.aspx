@@ -1,6 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ABMClub1.aspx.cs" Inherits="ABMClub1"      %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+     <script type="text/javascript">
+        $(document).ready(function () {
+            $('[id$=txtFechaFundacion]').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd-mm-yy",
+                showAnim: 'slideDown'
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <%--<form runat="server">--%>
@@ -146,8 +156,7 @@
                             </asp:GridView>
                         </div>
                     </div>
-                </div>
-                -
+                </div>               
             </div>
         </div>
    <%-- </form>--%>

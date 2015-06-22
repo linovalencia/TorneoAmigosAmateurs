@@ -33,7 +33,7 @@ namespace LigaDeFutbolDAL
                     c.idEstadoCampeonato = int.Parse(dr["idEstadoCampeonato"].ToString());
                     c.puntosPartidoGanado = int.Parse(dr["puntosPartidoGanado"].ToString());
                     c.puntosPartidoEmpatado = int.Parse(dr["puntosPartidoEmpatado"].ToString());
-                    c.fechaLimiteInscripcion = DateTime.Parse(dr["apellido"].ToString());
+                    c.fechaLimiteInscripcion = DateTime.Parse(dr["fechaLimiteInscripcion"].ToString());
                     
                    
 

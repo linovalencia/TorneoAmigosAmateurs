@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using LigaDeFutbolDTO;
 
-namespace LigaDeFutbolDAL.DAL
+namespace LigaDeFutbolDAL
 {
     public class InscripcionDAL
     {
@@ -27,11 +27,11 @@ namespace LigaDeFutbolDAL.DAL
                 while (dr.Read())
                 {
                     InscripcionDTO i=new InscripcionDTO();
+                    i.idInscripcion = int.Parse(dr["numeroInscripcion"].ToString());
                     i.idClub = int.Parse(dr["idClub"].ToString());
-                    i.idCampeonato = int.Parse(dr["idCampeonato"].ToString());
-                    i.numeroInscripcion = int.Parse(dr["numeroInscripcion"].ToString());
+                    i.idCampeonato = int.Parse(dr["idCampeonato"].ToString());                    
                     i.fechaInscripcion = DateTime.Parse(dr["fechaInscripcion"].ToString());
-                    i.idDetalleInscripcion = int.Parse(dr["idDetalleInscripcion"].ToString());
+                   
                     inscripciones.Add(i);
                 }
                 cnn.Close();
@@ -43,33 +43,87 @@ namespace LigaDeFutbolDAL.DAL
             return inscripciones;
         }
 
-        public static void insertarInscripcion(InscripcionDTO i, List<DetalleInscripcionDTO> detalles)
+        public static void insertarInscripcion(InscripcionDTO i, List<DetalleInscripcionDTO> detalles, List<JugadorDTO> jugadores)
         {
-            string consultaSql = @"INSERT INTO inscripcion (idClub, idCampeonato, numeroInscripcion, fechaInscripcion)
-                                  VALUES (@idCl, @idCa, @num, @fecha)";
+            string consultaSql = @"INSERT INTO inscripcion (idInscripcion, idClub, idCampeonato, fechaInscripcion)
+                                  VALUES (@num, @idCl, @idCa, @fecha)";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
+            SqlTransaction tran = null;
 
             try
             {
                 cnn.Open();
-                SqlCommand cmd = new SqlCommand(consultaSql, cnn);
+                tran = cnn.BeginTransaction();
 
+                SqlCommand cmd = new SqlCommand(consultaSql, cnn, tran);
+                actualizarNroInscripcion(cnn, tran);
+                i.idInscripcion = obtenerID(cnn, tran);
+
+                cmd.Parameters.AddWithValue("@num", i.idInscripcion);
                 cmd.Parameters.AddWithValue("@idCl", i.idClub);
-                cmd.Parameters.AddWithValue("@idCa", i.idCampeonato);
-                cmd.Parameters.AddWithValue("@num", i.numeroInscripcion);
+                cmd.Parameters.AddWithValue("@idCa", i.idCampeonato);                
                 cmd.Parameters.AddWithValue("@fecha", i.fechaInscripcion);
-                cmd.Parameters.AddWithValue("@idDe", i.idDetalleInscripcion);
-
+                
                 cmd.ExecuteNonQuery();
+                foreach (DetalleInscripcionDTO de in detalles)
+                {
+                    de.idInscripcion = i.idInscripcion;
+                    DetalleInscripcionDAL.Insertar(de, cnn, tran);               
+                    
+                }
+                foreach (JugadorDTO j in jugadores)
+                {
+                    JugadorDAL.InsertarJugador(j);
+                
+
+                }
+                tran.Commit();
                 cnn.Close();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                ex.ToString();
+                if (cnn.State == ConnectionState.Open)
+                {
+                    tran.Rollback();
+                    cnn.Close();
+                }
+
+                throw new ApplicationException("Error al realizar la inscripción");
+
             }
+            
         }
 
-        public static void eliminarInscripcion(int numeroInscripcion)
+        public static void actualizarNroInscripcion(SqlConnection cn, SqlTransaction tran)
+        {
+            string sql = @"UPDATE idInscripcion 
+                         SET idInscripcion = idInscripcion +1";
+            SqlCommand cmd = new SqlCommand(sql, cn, tran);
+            cmd.ExecuteNonQuery();
+        }
+
+        public static int obtenerID(SqlConnection cn, SqlTransaction tran)
+        {
+            int numero = 0;
+
+            string sql = "SELECT idInscripcion FROM idInscripcion";
+
+            SqlCommand cmd = new SqlCommand(sql, cn, tran);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+                numero = (int)dr["idInscripcion"];
+
+            dr.Close();
+            cmd.ExecuteNonQuery();
+
+
+            return numero;
+        }
+
+      
+
+        /*public static void eliminarInscripcion(int numeroInscripcion)
         {
             string consultaSql = "DELETE FROM inscripcion WHERE numeroInscripcion=@num";
             SqlConnection cnn = new SqlConnection(DALBase.StringConexion);
@@ -89,5 +143,6 @@ namespace LigaDeFutbolDAL.DAL
                 ex.ToString();
             }
         }
+        */
     }
 }

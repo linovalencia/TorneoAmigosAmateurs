@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using LigaDeFutbolDAL;
 using LigaDeFutbolDTO;
 
+
 public partial class TransaccionInscripcion : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -15,14 +16,16 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
         {
             CargarComboTipoDocumento();
             CargarComboClub();
+            CargarComboCampeonato();
+            txtFechaIn.Text = DateTime.Today.ToShortDateString();
         }
 
     }
 
-    protected void btnRegistrar_Click(object sender, EventArgs e)
-    {
 
-    }
+
+
+
     protected void btnEliminar_Click(object sender, EventArgs e)
     {
 
@@ -38,6 +41,10 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
 
     protected void ddlClub_SelectedIndexChanged(object sender, EventArgs e)
     {
+    }
+    protected void ddlCampeonato_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
     protected void gvJugadores_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -61,15 +68,22 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
     {
         try
         {
-            JugadorDTO j = new JugadorDTO();
-            j.idJugador = Jugadores.Count;
+            JugadorDTO j = new JugadorDTO();            
+            
             j.nombre = txtNombre.Text;
             j.apellido = txtApellido.Text;
             j.idTipoDocumento = int.Parse(ddlTipoDocumento.SelectedValue);
             j.numeroDocumento = int.Parse(txtNroDocumetno.Text);
             j.fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
 
+            DetalleInscripcionDTO detalle = new DetalleInscripcionDTO();
+            detalle.idJugador = j.idJugador;
+            detalle.idDetalleInscripcion = -1;
+            detalle.idInscripcion = -1;
+            Detalles.Add(detalle);
+
             Jugadores.Add(j);
+        
 
         }
         catch (ApplicationException ex)
@@ -82,7 +96,67 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
 
         CargarGrilla();
 
+    }  
+
+
+    protected void btnRegistrar_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            InscripcionDTO inscripcion = new InscripcionDTO();
+            inscripcion.fechaInscripcion = DateTime.Today;
+            inscripcion.idCampeonato = int.Parse(ddlCampeonato.SelectedItem.Value);
+            inscripcion.idClub = int.Parse(ddlClub.SelectedItem.Value);
+
+
+            InscripcionDAL.insertarInscripcion(inscripcion, Detalles, Jugadores);
+
+            lblMensajeExito.Text = "Inscripción grabada con exito";
+        }
+        catch (ApplicationException ex)
+        {
+            lblMensajeError.Text = ex.Message;
+        }
+
     }
+    public List<DetalleInscripcionDTO> Detalles
+    {
+        get
+        {
+            if (Session["detalles"] == null)
+            {
+                Session["detalles"] = new List<DetalleInscripcionDTO>();
+            }
+            return (List<DetalleInscripcionDTO>)Session["detalles"];
+        }
+        set
+        {
+            Session["detalles"] = value;
+        }
+
+    }
+    public List<JugadorDTO> Jugadores
+    {
+        get
+        {
+            if (Session["jugadores"] == null)
+            {
+                Session["jugadores"] = new List<JugadorDTO>();
+            }
+            return (List<JugadorDTO>)Session["jugadores"];
+        }
+        set
+        {
+            Session["jugadores"] = value;
+        }
+    }
+
+
+
+
+
+
+
     public void limpiarCampos()
     {
         ddlTipoDocumento.SelectedIndex = 0;
@@ -106,21 +180,7 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
         }
     }
 
-    public List<JugadorDTO> Jugadores
-    {
-        get
-        {
-            if (Session["jugadores"] == null)
-            {
-                Session["jugadores"] = new List<JugadorDTO>();
-            }
-            return (List<JugadorDTO>)Session["jugadores"];
-        }
-        set
-        {
-            Session["jugadores"] = value;
-        }
-    }
+
     private void CargarComboTipoDocumento()
     {
         ddlTipoDocumento.DataSource = TipoDocumentoDAL.ObtenerTodo();
@@ -140,4 +200,15 @@ public partial class TransaccionInscripcion : System.Web.UI.Page
         ddlClub.TabIndex = 0;
 
     }
+
+    private void CargarComboCampeonato()
+    {
+        ddlCampeonato.DataSource = CampeonatoDAL.obtenerCampeonatos();
+        ddlCampeonato.DataTextField = "nombre";
+        ddlCampeonato.DataValueField = "idCampeonato";
+        ddlCampeonato.DataBind();
+        ddlCampeonato.TabIndex = 0;
+
+    }
+
 }

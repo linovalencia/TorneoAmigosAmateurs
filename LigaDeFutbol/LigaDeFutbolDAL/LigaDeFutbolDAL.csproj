@@ -44,6 +44,7 @@
     <Compile Include="DAL\CampeonatoDAL.cs" />
     <Compile Include="DAL\CanchaDAL.cs" />
     <Compile Include="DAL\ClubDAL.cs" />
+    <Compile Include="DAL\DetalleInscripcionDAL.cs" />
     <Compile Include="DAL\FixtureDAL.cs" />
     <Compile Include="DAL\InscripcionDAL.cs" />
     <Compile Include="DAL\JugadorDAL.cs" />
